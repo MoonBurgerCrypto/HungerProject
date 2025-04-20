@@ -1,27 +1,27 @@
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
-  background-color: #fff9f3;
+  background-color: #fffaf3;
   color: #333;
-  line-height: 1.6;
+  line-height: 1.7;
 }
 
 header {
-  background-color: #ffb347;
+  background-color: #ff944d;
   color: white;
   text-align: center;
   padding: 2rem 1rem;
-  border-bottom: 4px solid #ff944d;
+  border-bottom: 4px solid #ff7733;
 }
 
 main {
   padding: 2rem;
-  max-width: 800px;
+  max-width: 850px;
   margin: auto;
 }
 
 h1, h2 {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.6rem;
 }
 
 section {
@@ -30,6 +30,7 @@ section {
 
 ul {
   padding-left: 1.5rem;
+  list-style: disc;
 }
 
 button {
@@ -43,7 +44,7 @@ button {
 }
 
 button:hover {
-  background-color: #ff7733;
+  background-color: #e66e1f;
 }
 
 #fact-output {
