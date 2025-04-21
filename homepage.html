@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Starvation Awareness - Home</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- AOS for scroll animations -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+</head>
+<body>
+  <!-- Navigation Buttons -->
+  <nav class="navbar">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="facts.html">Facts</a></li>
+      <li><a href="causes.html">Causes</a></li>
+      <li><a href="solutions.html">Solutions</a></li>
+      <li><a href="involved.html">Get Involved</a></li>
+      <li><a href="random.html">Random Fact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Header -->
+  <header data-aos="fade-down">
+    <h1>Welcome to Starvation Awareness</h1>
+    <p>Together, we can fight hunger and bring change.</p>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Introduction -->
+    <section data-aos="fade-up">
+      <h2>What is Starvation?</h2>
+      <p>Starvation is a severe deficiency in caloric energy, nutrient, and vitamin intake. It is the most extreme form of malnutrition and can result in death if untreated. Millions of people around the world suffer from this crisis every day.</p>
+    </section>
+
+    <!-- Call to Action -->
+    <section data-aos="fade-right">
+      <h2>How You Can Help</h2>
+      <p>You can start by learning more on this site: explore the causes, read the facts, and get involved in solutions. Even small actions make a difference.</p>
+    </section>
+
+    <!-- Random Fact Generator -->
+    <section id="fact-generator" data-aos="zoom-in">
+      <h2>Random Hunger Fact</h2>
+      <button class="action-button" onclick="showFact()">Click for a Random Fact</button>
+      <p id="fact-output"></p>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Starvation Awareness | Made for School</p>
+  </footer>
+
+  <!-- AOS Scroll Library -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>AOS.init();</script>
+
+  <script src="homepage.js"></script>
+</body>
+</html>
