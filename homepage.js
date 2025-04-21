@@ -1,23 +1,34 @@
+// homepage.js
+
 const facts = [
+  "Over 800 million people go to bed hungry every night.",
   "Every 10 seconds, a child dies from hunger-related causes.",
-  "Over one-third of all food produced globally is wasted — enough to feed 2 billion people.",
-  "In some countries, families survive on less than $1 a day, making food a luxury.",
-  "Malnourished children are 9 times more likely to die from diseases like diarrhea or pneumonia.",
-  "Access to clean water is also crucial — many die from drinking dirty water due to food shortages.",
-  "Hunger affects children's ability to learn in school and reduces chances of escaping poverty.",
-  "Women and girls are more likely to suffer from hunger in many regions due to gender inequality.",
-  "Hunger and starvation are entirely preventable with global cooperation and support.",
-  "Chronic hunger can cause stunted growth and cognitive impairment in children.",
-  "Communities facing famine often also deal with displacement due to war or climate disasters.",
-  "About 45% of all child deaths worldwide are linked to undernutrition.",
-  "Starvation weakens the immune system, making common illnesses deadly.",
-  "Hunger can be both a cause and a result of poverty, creating a vicious cycle.",
-  "In emergencies, food aid is essential to saving lives — but long-term solutions are needed.",
-  "Access to education, especially for girls, is a powerful way to fight hunger."
+  "Malnutrition is responsible for nearly half of deaths in children under 5.",
+  "Hunger kills more people each year than AIDS, malaria, and tuberculosis combined.",
+  "1 in 9 people in the world suffer from chronic hunger.",
+  "Most people suffering from hunger live in developing countries.",
+  "Food insecurity is rising due to conflict and climate change.",
+  "Women and children are most affected by starvation.",
+  "The world produces enough food to feed everyone.",
+  "Reducing food waste could help solve world hunger."
 ];
 
 function showFact() {
   const randomIndex = Math.floor(Math.random() * facts.length);
-  const fact = facts[randomIndex];
-  document.getElementById("fact-output").textContent = fact;
+  document.getElementById("fact-output").textContent = facts[randomIndex];
 }
+
+// Smooth scrolling for nav links
+document.querySelectorAll('.navbar a').forEach(link => {
+  link.addEventListener('click', function (e) {
+    e.preventDefault();
+    const targetId = this.getAttribute('href').substring(1);
+    const targetElement = document.getElementById(targetId);
+    if (targetElement) {
+      window.scrollTo({
+        top: targetElement.offsetTop - 60,
+        behavior: 'smooth'
+      });
+    }
+  });
+});
