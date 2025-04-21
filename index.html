@@ -2,59 +2,71 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>End Starvation</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Starvation Awareness</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header>
-    <h1>End Starvation</h1>
-    <p>Fighting hunger, saving lives, and creating a better future.</p>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#facts">Facts</a></li>
+      <li><a href="#causes">Causes</a></li>
+      <li><a href="#solutions">Solutions</a></li>
+      <li><a href="#get-involved">Get Involved</a></li>
+      <li><a href="#fact-generator">Random Fact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Header -->
+  <header id="home">
+    <h1>Starvation Awareness</h1>
   </header>
 
+  <!-- Main Content -->
   <main>
-    <section class="info">
-      <h2>What is Starvation?</h2>
-      <p>
-        Starvation is an extreme form of malnutrition where the body lacks essential nutrients and calories to function.
-        It results from long-term hunger and leads to organ damage, weakened immunity, and eventually death.
-        It affects people of all ages but hits children and the elderly the hardest.
-      </p>
-    </section>
-
-    <section class="causes">
-      <h2>Main Causes of Starvation</h2>
+    <section id="facts">
+      <h2>Important Facts</h2>
       <ul>
-        <li>Poverty and lack of access to food</li>
-        <li>War and conflict disrupting food supply</li>
-        <li>Climate change affecting crops and farming</li>
-        <li>Economic inequality and poor infrastructure</li>
+        <li>Over 800 million people go to bed hungry every night.</li>
+        <li>Every 10 seconds, a child dies from hunger-related causes.</li>
+        <li>Malnutrition is responsible for nearly half of deaths in children under 5.</li>
+        <li>Hunger kills more people each year than AIDS, malaria, and tuberculosis combined.</li>
+        <li>1 in 9 people in the world suffer from chronic hunger.</li>
+        <li>Most people suffering from hunger live in developing countries.</li>
+        <li>Food insecurity is rising due to conflict and climate change.</li>
+        <li>Women and children are most affected by starvation.</li>
+        <li>The world produces enough food to feed everyone.</li>
+        <li>Reducing food waste could help solve world hunger.</li>
       </ul>
     </section>
 
-    <section class="stats">
-      <h2>Why It Matters</h2>
-      <ul>
-        <li>Over 828 million people faced hunger in 2023.</li>
-        <li>45 million children under age 5 suffer from wasting (low weight for height).</li>
-        <li>Every year, 3.1 million children die due to poor nutrition.</li>
-        <li>Hunger affects learning, development, and entire communities.</li>
-      </ul>
+    <section id="causes">
+      <h2>Causes of Starvation</h2>
+      <p>Starvation is often caused by poverty, conflict, natural disasters, and inequality in food distribution. Climate change and war can damage food systems, making access even harder.</p>
     </section>
 
-    <section class="action">
-      <h2>What You Can Do</h2>
-      <p>
-        Solving starvation is possible — and everyone can help. Whether it's donating to food programs,
-        spreading awareness, or volunteering at local shelters, your actions matter.
-      </p>
+    <section id="solutions">
+      <h2>Solutions</h2>
+      <p>Solutions include supporting food banks, donating to global aid organizations, reducing food waste, and improving agricultural sustainability and distribution systems.</p>
+    </section>
+
+    <section id="get-involved">
+      <h2>Get Involved</h2>
+      <p>You can make a difference by donating to hunger-relief charities, volunteering at food drives, and spreading awareness about food insecurity.</p>
+    </section>
+
+    <section id="fact-generator">
+      <h2>Random Fact Generator</h2>
       <button class="action-button" onclick="showFact()">Click for a Random Fact</button>
       <p id="fact-output"></p>
     </section>
   </main>
 
+  <!-- Footer -->
   <footer>
-    <p>Created for school by [Your Name] | Powered by hope and awareness</p>
+    <p>Made for school | Starvation Awareness Project</p>
   </footer>
 
   <script src="homepage.js"></script>
