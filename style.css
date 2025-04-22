@@ -1,17 +1,17 @@
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
-  background-color: #000; /* Set background to black */
-  color: #fff; /* White text color to contrast with black background */
+  background-color: #121212;
+  color: #f4f4f4;
   line-height: 1.7;
 }
 
 header {
-  background-color: #ff944d; /* Keep header color */
+  background-color: #ff944d;
   color: white;
   text-align: center;
   padding: 2rem 1rem;
-  border-bottom: 4px solid #ff7733;
+  border-bottom: 4px solid #e66e1f;
 }
 
 main {
@@ -33,33 +33,94 @@ ul {
   list-style: disc;
 }
 
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #222;
+  font-size: 0.9rem;
+  color: #aaa;
+  margin-top: 2rem;
+}
+
+/* Navbar */
+.navbar {
+  background-color: #1a1a1a;
+  padding: 1rem;
+  text-align: center;
+}
+.navbar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.navbar li {
+  margin: 0 15px;
+}
+.navbar a {
+  color: #ff944d;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+.navbar a:hover {
+  color: #fff;
+}
+
+/* Buttons */
 .action-button {
-  background-color: #ff944d; /* Main theme color */
+  background-color: #ff944d;
   color: white;
   border: none;
   padding: 0.6rem 1.2rem;
   border-radius: 5px;
   cursor: pointer;
   font-size: 1rem;
-  transition: transform 0.2s ease, box-shadow 0.3s ease; /* Smooth transition for scaling and shadow */
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
 }
-
 .action-button:hover {
-  background-color: #e66e1f; /* Darker shade for hover */
-  transform: scale(1.05); /* Grow effect */
-  box-shadow: 0 0 15px rgba(255, 204, 0, 0.6); /* Golden glow effect */
+  background-color: #e66e1f;
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(255, 204, 0, 0.6);
 }
 
 #fact-output {
   margin-top: 1rem;
   font-style: italic;
-  color: #bbb; /* Lighter color for the text */
+  color: #ddd;
 }
 
-footer {
+/* Banner Image */
+.banner img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-top: 1rem;
+}
+
+/* Navigation Buttons */
+.link-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.nav-button {
+  display: block;
   text-align: center;
-  padding: 1rem;
-  background-color: #222; /* Dark footer */
-  font-size: 0.9rem;
-  margin-top: 2rem;
+  padding: 0.7rem 1rem;
+  background-color: #ff944d;
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+  transition: transform 0.2s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+.nav-button:hover {
+  background-color: #e66e1f;
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(255, 204, 0, 0.4);
 }
