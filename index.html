@@ -3,95 +3,65 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Starvation Awareness - Home</title>
+  <title>End World Hunger</title>
   <link rel="stylesheet" href="style.css" />
-  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"/>
 </head>
 <body>
   <!-- Navigation Bar -->
-<nav class="navbar">
-  <ul>
-    <li><a href="index.html">Home</a></li>
-    <li><a href="facts.html">Facts</a></li>
-    <li><a href="causes.html">Causes</a></li>
-    <li><a href="ways.html">Ways to Help</a></li>
-    <li><a href="solutions.html">Solutions</a></li>
-    <li><a href="involved.html">Get Involved</a></li>
-  </ul>
-</nav>
-
+  <nav class="navbar">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="facts.html">Facts</a></li>
+      <li><a href="causes.html">Causes</a></li>
+      <li><a href="ways.html">Ways to Help</a></li>
+      <li><a href="solutions.html">Solutions</a></li>
+      <li><a href="involved.html">Get Involved</a></li>
+    </ul>
+  </nav>
 
   <!-- Header -->
   <header data-aos="fade-down">
-    <h1>Welcome to Starvation Awareness</h1>
-    <p>Learn, act, and help create a world without hunger.</p>
+    <h1>End World Hunger</h1>
+    <p>Together, we can make a difference.</p>
   </header>
 
-  <!-- Main Content -->
+  <!-- Visual Banner -->
+  <section class="banner" data-aos="fade-in">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Hungry_Child.jpg/800px-Hungry_Child.jpg" alt="Starving child" />
+  </section>
+
   <main>
-    <!-- About Starvation -->
+    <!-- Random Fact Section -->
     <section data-aos="fade-up">
-      <h2>What is Starvation?</h2>
-      <p>Starvation is a severe lack of food and nutrients that leads to suffering and death. Millions of people, especially children, face hunger every single day due to poverty, war, and inequality.</p>
-    </section>
-
-    <!-- Why It Matters -->
-    <section data-aos="fade-right">
-      <h2>Why It Matters</h2>
-      <p>Hunger is not just about food — it affects education, health, and future generations. Ending hunger means creating real opportunities for people to thrive.</p>
-    </section>
-
-    <!-- Key Statistics -->
-    <section class="stats" data-aos="fade-up">
-      <h2>Key Statistics</h2>
-      <ul>
-        <li>Over 800 million people suffer from chronic hunger worldwide.</li>
-        <li>Every 10 seconds, a child dies from hunger-related causes.</li>
-        <li>1 in 9 people globally go to bed hungry each night.</li>
-        <li>Most hunger-related deaths occur in developing countries.</li>
-      </ul>
-    </section>
-
-    <!-- Call to Action -->
-    <section class="call-to-action" data-aos="zoom-in">
-      <h2>“We can’t help everyone, but everyone can help someone.”</h2>
-      <p>Join the fight against hunger. Every step counts.</p>
-      <a href="ways.html" class="action-button">Find Ways to Help</a>
-    </section>
-
-    <!-- Visual Banner -->
-    <section class="banner" data-aos="fade-in">
-      <img src="https://cdn.pixabay.com/photo/2017/05/07/08/56/africa-2294179_1280.jpg" alt="Child affected by hunger" />
-    </section>
-
-    <!-- Page Navigation Buttons -->
-    <section class="page-links" data-aos="fade-up">
-      <h2>Explore More</h2>
-      <div class="link-grid">
-        <a href="facts.html" class="nav-button">Facts</a>
-        <a href="causes.html" class="nav-button">Causes</a>
-        <a href="ways.html" class="nav-button">Ways to Help</a>
-        <a href="solutions.html" class="nav-button">Solutions</a>
-        <a href="involved.html" class="nav-button">Get Involved</a>
-      </div>
-    </section>
-
-    <!-- Random Fact Generator -->
-    <section id="fact-generator" data-aos="zoom-in">
-      <h2>Random Hunger Fact</h2>
+      <h2>Did You Know?</h2>
       <button class="action-button" onclick="showFact()">Click for a Random Fact</button>
       <p id="fact-output"></p>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section data-aos="fade-up" class="cta-section">
+      <h2>Why This Matters</h2>
+      <p>Every day, millions of people go without food. It's not just numbers—it's real lives. We have the power to change that.</p>
+
+      <ul class="highlight-stats">
+        <li><strong>828 million</strong> people go to bed hungry every night.</li>
+        <li><strong>45 million</strong> children under 5 suffer from wasting due to malnutrition.</li>
+        <li><strong>1/3</strong> of all food produced is wasted globally.</li>
+      </ul>
+
+      <a href="ways.html" class="nav-button">Take Action Now</a>
     </section>
   </main>
 
   <!-- Footer -->
   <footer>
-    <p>&copy; 2025 Starvation Awareness | Created for School Project</p>
+    <p>&copy; 2025 End World Hunger. All rights reserved.</p>
   </footer>
 
   <!-- Scripts -->
-  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-  <script>AOS.init();</script>
   <script src="homepage.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>AOS.init();</script>
 </body>
 </html>
