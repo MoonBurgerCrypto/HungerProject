@@ -1,3 +1,4 @@
+/* Base Styles */
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
@@ -6,6 +7,7 @@ body {
   line-height: 1.7;
 }
 
+/* Header */
 header {
   background-color: #ff944d;
   color: white;
@@ -33,6 +35,7 @@ ul {
   list-style: disc;
 }
 
+/* Footer */
 footer {
   text-align: center;
   padding: 1rem;
@@ -45,31 +48,41 @@ footer {
 /* Navbar */
 .navbar {
   background-color: #1a1a1a;
-  padding: 1rem;
-  text-align: center;
+  padding: 0.5rem 1rem;
+  border-bottom: 3px solid #ff944d;
 }
+
 .navbar ul {
   list-style: none;
   padding: 0;
   margin: 0;
   display: flex;
+  justify-content: space-around;
   flex-wrap: wrap;
-  justify-content: center;
-}
-.navbar li {
-  margin: 0 15px;
-}
-.navbar a {
-  color: #ff944d;
-  text-decoration: none;
-  font-weight: bold;
-  transition: color 0.3s ease;
-}
-.navbar a:hover {
-  color: #fff;
 }
 
-/* Buttons */
+.navbar li {
+  margin: 0;
+}
+
+.navbar a {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  color: white;
+  background-color: #ff944d;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 6px;
+  transition: transform 0.2s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.navbar a:hover {
+  background-color: #e66e1f;
+  transform: scale(1.05);
+  box-shadow: 0 0 12px rgba(255, 204, 0, 0.5);
+}
+
+/* General Buttons */
 .action-button {
   background-color: #ff944d;
   color: white;
@@ -80,19 +93,21 @@ footer {
   font-size: 1rem;
   transition: transform 0.2s ease, box-shadow 0.3s ease;
 }
+
 .action-button:hover {
   background-color: #e66e1f;
   transform: scale(1.05);
   box-shadow: 0 0 15px rgba(255, 204, 0, 0.6);
 }
 
+/* Random Fact */
 #fact-output {
   margin-top: 1rem;
   font-style: italic;
   color: #ddd;
 }
 
-/* Banner Image */
+/* Image Banner */
 .banner img {
   width: 100%;
   height: auto;
@@ -100,13 +115,14 @@ footer {
   margin-top: 1rem;
 }
 
-/* Navigation Buttons */
+/* Page Navigation Buttons Section */
 .link-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   gap: 1rem;
   margin-top: 1rem;
 }
+
 .nav-button {
   display: block;
   text-align: center;
@@ -119,6 +135,7 @@ footer {
   box-shadow: 0 2px 5px rgba(0,0,0,0.15);
   transition: transform 0.2s ease, background-color 0.3s ease, box-shadow 0.3s ease;
 }
+
 .nav-button:hover {
   background-color: #e66e1f;
   transform: scale(1.05);
