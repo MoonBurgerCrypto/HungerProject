@@ -1,1 +1,106 @@
+/* General */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #121212;
+  color: #fffaf3;
+  line-height: 1.7;
+}
+
+header {
+  background-color: #ff944d;
+  color: white;
+  text-align: center;
+  padding: 2rem 1rem;
+  border-bottom: 4px solid #e66e1f;
+}
+
+h1, h2 {
+  margin-bottom: 0.6rem;
+}
+
+main {
+  padding: 2rem;
+  max-width: 850px;
+  margin: auto;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  background-color: #1e1e1e;
+  padding: 0.75rem;
+  border-bottom: 2px solid #ff944d;
+}
+
+.navbar a {
+  color: #ff944d;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  border-radius: 6px;
+}
+
+.navbar a:hover {
+  background-color: #ff944d;
+  color: #121212;
+  transform: scale(1.1);
+  box-shadow: 0 0 10px rgba(255, 204, 0, 0.5);
+}
+
+.navbar a.active {
+  background-color: #ff944d;
+  color: #121212;
+}
+
+/* Fact Card */
+.fact-card {
+  background-color: #1e1e1e;
+  border: 2px solid #ff944d;
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin: 2rem auto;
+  max-width: 700px;
+  text-align: center;
+  box-shadow: 0 0 15px rgba(255, 165, 0, 0.2);
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.fact-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 20px rgba(255, 204, 0, 0.6);
+}
+
+.fact-card h2 {
+  color: #ffcc80;
+  margin-bottom: 0.75rem;
+  font-size: 1.6rem;
+}
+
+.fact-card p {
+  color: #fffaf3;
+  font-size: 1.1rem;
+  font-style: italic;
+}
+
+/* Fact List */
+.fact-list {
+  list-style: disc;
+  padding-left: 1.5rem;
+  margin-top: 1rem;
+  color: #ffcc80;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #1e1e1e;
+  font-size: 0.9rem;
+  color: #888;
+  margin-top: 2rem;
+}
 
