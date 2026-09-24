@@ -1,9 +1,10 @@
-const DATA_VERSION = "primebet-v4";
+const DATA_VERSION = "primebet-v5";
 
 let balance;
 let bets;
 let selectedBet = "";
 let selectedOdds = 1;
+let selectedOpenedOdds = 1;
 
 
 // ==================================================
@@ -296,6 +297,35 @@ const sports = {
 
 
 // ==================================================
+// MARKET MOVERS
+// ==================================================
+
+let marketMovers = [
+
+    {
+        name: "Bitcoin above $125K",
+        odds: 2.12
+    },
+
+    {
+        name: "Tesla below $400",
+        odds: 1.78
+    },
+
+    {
+        name: "Trump mentions tariffs",
+        odds: 2.10
+    },
+
+    {
+        name: "AI announcement",
+        odds: 1.55
+    }
+
+];
+
+
+// ==================================================
 // INITIALIZE
 // ==================================================
 
@@ -330,6 +360,10 @@ function initialize() {
         "NFL",
         document.querySelector(".sport-tab")
     );
+
+    renderMarketMovers();
+
+    startMarketMovement();
 }
 
 
@@ -341,13 +375,11 @@ function createDemoBets() {
 
     return [
 
-        // ------------------------------
-        // NEW / PENDING
-        // ------------------------------
-
         {
+            id: generateBetID(),
             selection: "Packers",
             odds: 1.61,
+            openedOdds: 1.61,
             amount: 25,
             payout: 40.25,
             status: "PENDING",
@@ -355,8 +387,10 @@ function createDemoBets() {
         },
 
         {
+            id: generateBetID(),
             selection: "Timberwolves",
             odds: 2.05,
+            openedOdds: 2.05,
             amount: 50,
             payout: 102.50,
             status: "PENDING",
@@ -364,8 +398,10 @@ function createDemoBets() {
         },
 
         {
+            id: generateBetID(),
             selection: "Bitcoin above $125,000",
             odds: 2.12,
+            openedOdds: 2.12,
             amount: 100,
             payout: 212.00,
             status: "PENDING",
@@ -373,8 +409,10 @@ function createDemoBets() {
         },
 
         {
+            id: generateBetID(),
             selection: "Trump mentions tariffs",
             odds: 2.10,
+            openedOdds: 2.10,
             amount: 50,
             payout: 105.00,
             status: "PENDING",
@@ -382,22 +420,21 @@ function createDemoBets() {
         },
 
         {
+            id: generateBetID(),
             selection: "MrBeast next video — Challenge",
             odds: 1.95,
+            openedOdds: 1.95,
             amount: 40,
             payout: 78.00,
             status: "PENDING",
             date: "Today"
         },
 
-
-        // ------------------------------
-        // SETTLED / ALREADY HAPPENED
-        // ------------------------------
-
         {
+            id: generateBetID(),
             selection: "Eagles",
             odds: 1.78,
+            openedOdds: 1.78,
             amount: 75,
             payout: 133.50,
             status: "WON",
@@ -405,8 +442,10 @@ function createDemoBets() {
         },
 
         {
+            id: generateBetID(),
             selection: "Longest Field Goal Over 49.5 yards",
             odds: 1.91,
+            openedOdds: 1.91,
             amount: 100,
             payout: 191.00,
             status: "WON",
@@ -414,8 +453,10 @@ function createDemoBets() {
         },
 
         {
+            id: generateBetID(),
             selection: "Celtics",
             odds: 1.72,
+            openedOdds: 1.72,
             amount: 150,
             payout: 258.00,
             status: "LOST",
@@ -423,69 +464,33 @@ function createDemoBets() {
         },
 
         {
+            id: generateBetID(),
             selection: "Dodgers",
             odds: 1.55,
+            openedOdds: 1.55,
             amount: 200,
             payout: 310.00,
             status: "WON",
             date: "2 days ago"
-        },
-
-        {
-            selection: "Nasdaq Down",
-            odds: 2.01,
-            amount: 50,
-            payout: 100.50,
-            status: "LOST",
-            date: "3 days ago"
-        },
-
-        {
-            selection: "Gold above $4,000",
-            odds: 2.05,
-            amount: 75,
-            payout: 153.75,
-            status: "WON",
-            date: "3 days ago"
-        },
-
-        {
-            selection: "Fed holds rates",
-            odds: 1.58,
-            amount: 125,
-            payout: 197.50,
-            status: "WON",
-            date: "4 days ago"
-        },
-
-        {
-            selection: "World Series Winner — Dodgers",
-            odds: 4.50,
-            amount: 25,
-            payout: 112.50,
-            status: "PENDING",
-            date: "5 days ago"
-        },
-
-        {
-            selection: "NBA Champion — Timberwolves",
-            odds: 9.00,
-            amount: 20,
-            payout: 180.00,
-            status: "PENDING",
-            date: "5 days ago"
-        },
-
-        {
-            selection: "New Guinness World Record set",
-            odds: 1.45,
-            amount: 100,
-            payout: 145.00,
-            status: "WON",
-            date: "6 days ago"
         }
 
     ];
+}
+
+
+// ==================================================
+// GENERATE BET ID
+// ==================================================
+
+function generateBetID() {
+
+    const number =
+        Math.floor(
+            100000 +
+            Math.random() * 900000
+        );
+
+    return "PB-" + number;
 }
 
 
@@ -515,6 +520,7 @@ function showPage(page) {
             "hidden",
             page !== "bets"
         );
+
 
     document
         .querySelectorAll(".nav-btn")
@@ -568,23 +574,22 @@ function loadSport(sport, button) {
         button.classList.add("active");
     }
 
+
     document
         .getElementById("sportTitle")
         .textContent = sport;
+
 
     const container =
         document.getElementById(
             "sportsContainer"
         );
 
+
     const data = sports[sport];
 
     let html = "";
 
-
-    // ==================================================
-    // GAMES
-    // ==================================================
 
     html += `
         <div class="game-section">
@@ -651,10 +656,6 @@ function loadSport(sport, button) {
         </div>
     `;
 
-
-    // ==================================================
-    // PROPS
-    // ==================================================
 
     html += `
         <div class="game-section">
@@ -729,10 +730,6 @@ function loadSport(sport, button) {
     `;
 
 
-    // ==================================================
-    // FUTURES
-    // ==================================================
-
     html += `
         <div class="game-section">
 
@@ -788,6 +785,8 @@ function selectBet(selection, odds) {
 
     selectedOdds = Number(odds);
 
+    selectedOpenedOdds = Number(odds);
+
 
     document
         .getElementById("selectedBet")
@@ -805,19 +804,112 @@ function selectBet(selection, odds) {
         .value = "";
 
 
-    // FIXED:
-    // Your HTML doesn't contain #profit,
-    // so we no longer try to modify it.
-
-
-    document
-        .getElementById("payout")
-        .textContent = "$0.00";
+    updateBetSlip();
 
 
     document
         .getElementById("betSlip")
         .classList.remove("hidden");
+
+}
+
+
+// ==================================================
+// UPDATE BET SLIP
+// ==================================================
+
+function updateBetSlip() {
+
+    const amount =
+        Number(
+            document.getElementById(
+                "betAmount"
+            ).value
+        ) || 0;
+
+
+    const totalReturn =
+        amount * selectedOdds;
+
+
+    const potentialProfit =
+        totalReturn - amount;
+
+
+    const amountElement =
+        document.getElementById(
+            "slipBetAmount"
+        );
+
+
+    const profitElement =
+        document.getElementById(
+            "slipPotentialProfit"
+        );
+
+
+    const returnElement =
+        document.getElementById(
+            "slipTotalReturn"
+        );
+
+
+    if (amountElement) {
+
+        amountElement.textContent =
+            "$" + amount.toFixed(2);
+
+    }
+
+
+    if (profitElement) {
+
+        profitElement.textContent =
+            "$" + potentialProfit.toFixed(2);
+
+    }
+
+
+    if (returnElement) {
+
+        returnElement.textContent =
+            "$" + totalReturn.toFixed(2);
+
+    }
+
+
+    const payout =
+        document.getElementById("payout");
+
+
+    if (payout) {
+
+        payout.textContent =
+            "$" + totalReturn.toFixed(2);
+
+    }
+
+}
+
+
+// ==================================================
+// QUICK BET BUTTON
+// ==================================================
+
+function setBetAmount(amount) {
+
+    const input =
+        document.getElementById(
+            "betAmount"
+        );
+
+
+    if (!input) return;
+
+
+    input.value = amount;
+
+    updateBetSlip();
 
 }
 
@@ -841,22 +933,7 @@ function closeSlip() {
 
 function calculatePayout() {
 
-    const amount =
-        Number(
-            document.getElementById(
-                "betAmount"
-            ).value
-        ) || 0;
-
-
-    const payout =
-        amount * selectedOdds;
-
-
-    document
-        .getElementById("payout")
-        .textContent =
-        "$" + payout.toFixed(2);
+    updateBetSlip();
 
 }
 
@@ -899,14 +976,15 @@ function placeBet() {
         amount * selectedOdds;
 
 
-    balance -= amount;
+    const newBet = {
 
-
-    bets.unshift({
+        id: generateBetID(),
 
         selection: selectedBet,
 
         odds: selectedOdds,
+
+        openedOdds: selectedOpenedOdds,
 
         amount: amount,
 
@@ -916,7 +994,13 @@ function placeBet() {
 
         date: "Just now"
 
-    });
+    };
+
+
+    balance -= amount;
+
+
+    bets.unshift(newBet);
 
 
     saveData();
@@ -927,10 +1011,192 @@ function placeBet() {
 
     renderBets();
 
+    showBetConfirmation(newBet);
 
-    alert(
-        "Bet placed!"
+}
+
+
+// ==================================================
+// BET CONFIRMATION
+// ==================================================
+
+function showBetConfirmation(bet) {
+
+    let confirmation =
+        document.getElementById(
+            "betConfirmation"
+        );
+
+
+    if (!confirmation) {
+
+        confirmation =
+            document.createElement("div");
+
+        confirmation.id =
+            "betConfirmation";
+
+        confirmation.className =
+            "bet-confirmation";
+
+        document.body.appendChild(
+            confirmation
+        );
+
+    }
+
+
+    confirmation.innerHTML = `
+
+        <div class="confirmation-icon">
+            ✓
+        </div>
+
+        <div class="confirmation-content">
+
+            <strong>
+                Bet placed!
+            </strong>
+
+            <span>
+                ${bet.selection}
+            </span>
+
+            <small>
+                ${bet.id} • $${bet.amount.toFixed(2)}
+            </small>
+
+        </div>
+
+    `;
+
+
+    confirmation.classList.remove(
+        "show"
     );
+
+
+    setTimeout(() => {
+
+        confirmation.classList.add(
+            "show"
+        );
+
+    }, 20);
+
+
+    setTimeout(() => {
+
+        confirmation.classList.remove(
+            "show"
+        );
+
+    }, 3500);
+
+}
+
+
+// ==================================================
+// MARKET MOVERS
+// ==================================================
+
+function renderMarketMovers() {
+
+    const container =
+        document.getElementById(
+            "marketMovers"
+        );
+
+
+    if (!container) return;
+
+
+    container.innerHTML = "";
+
+
+    marketMovers.forEach(market => {
+
+        const row =
+            document.createElement("button");
+
+
+        row.className =
+            "market-mover";
+
+
+        row.innerHTML = `
+
+            <span>
+                ${market.name}
+            </span>
+
+            <b>
+                ${market.odds.toFixed(2)}x
+            </b>
+
+        `;
+
+
+        row.onclick = () => {
+
+            selectBet(
+                market.name,
+                market.odds
+            );
+
+        };
+
+
+        container.appendChild(row);
+
+    });
+
+}
+
+
+// ==================================================
+// RANDOM MARKET MOVEMENT
+// ==================================================
+
+function startMarketMovement() {
+
+    const delay =
+        Math.floor(
+            Math.random() * 10000
+        ) + 10000;
+
+
+    setTimeout(() => {
+
+        marketMovers.forEach(market => {
+
+            const movement =
+                (Math.random() * 0.10) - 0.05;
+
+
+            market.odds += movement;
+
+
+            if (market.odds < 1.10) {
+
+                market.odds = 1.10;
+
+            }
+
+
+            market.odds =
+                Number(
+                    market.odds.toFixed(2)
+                );
+
+        });
+
+
+        renderMarketMovers();
+
+        startMarketMovement();
+
+    }, delay);
 
 }
 
@@ -1003,10 +1269,6 @@ function renderBets() {
     let html = "";
 
 
-    // ==================================================
-    // PENDING
-    // ==================================================
-
     if (pendingBets.length > 0) {
 
         html += `
@@ -1032,10 +1294,6 @@ function renderBets() {
 
     }
 
-
-    // ==================================================
-    // SETTLED
-    // ==================================================
 
     if (settledBets.length > 0) {
 
@@ -1082,6 +1340,60 @@ function renderBets() {
 
 
 // ==================================================
+// ODDS MOVEMENT
+// ==================================================
+
+function getOddsMovement(bet) {
+
+    const current =
+        Number(bet.odds);
+
+
+    const opened =
+        Number(
+            bet.openedOdds ||
+            bet.odds
+        );
+
+
+    if (current > opened) {
+
+        return {
+
+            arrow: "↑",
+
+            className: "odds-up"
+
+        };
+
+    }
+
+
+    if (current < opened) {
+
+        return {
+
+            arrow: "↓",
+
+            className: "odds-down"
+
+        };
+
+    }
+
+
+    return {
+
+        arrow: "→",
+
+        className: "odds-same"
+
+    };
+
+}
+
+
+// ==================================================
 // CREATE BET HISTORY CARD
 // ==================================================
 
@@ -1116,7 +1428,12 @@ function createBetHTML(bet) {
     }
 
 
+    const movement =
+        getOddsMovement(bet);
+
+
     return `
+
         <div class="bet-history">
 
             <div class="bet-history-top">
@@ -1140,42 +1457,67 @@ function createBetHTML(bet) {
             </div>
 
 
+            <div class="bet-id">
+                BET #${bet.id}
+            </div>
+
+
             <div class="bet-details">
 
                 <div>
-                    <small>Position</small>
+
+                    <small>
+                        Position
+                    </small>
 
                     <strong>
                         $${Number(bet.amount).toFixed(2)}
                     </strong>
+
                 </div>
 
 
                 <div>
-                    <small>Odds</small>
 
-                    <strong>
+                    <small>
+                        Odds
+                    </small>
+
+                    <strong class="history-odds ${movement.className}">
                         ${Number(bet.odds).toFixed(2)}x
+                        ${movement.arrow}
                     </strong>
+
+                    <small class="opened-odds">
+                        Opened at ${Number(
+                            bet.openedOdds ||
+                            bet.odds
+                        ).toFixed(2)}x
+                    </small>
+
                 </div>
 
 
                 <div>
+
                     <small>
                         ${bet.status === "PENDING"
-                            ? "Potential Payout"
+                            ? "Potential Return"
                             : "Result"}
                     </small>
 
                     <strong class="bet-result ${statusClass}">
                         ${resultText}
                     </strong>
+
                 </div>
 
             </div>
 
         </div>
+
     `;
+
 }
 
 
@@ -1224,6 +1566,7 @@ function showDepositMessage() {
             "depositModal"
         );
 
+
     if (modal) {
 
         modal.classList.remove(
@@ -1241,6 +1584,7 @@ function closeDepositMessage() {
         document.getElementById(
             "depositModal"
         );
+
 
     if (modal) {
 
