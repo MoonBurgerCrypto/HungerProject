@@ -1,34 +1,122 @@
-// homepage.js
+let balance = 10000;
 
-const facts = [
-  "Over 800 million people go to bed hungry every night.",
-  "Every 10 seconds, a child dies from hunger-related causes.",
-  "Malnutrition is responsible for nearly half of deaths in children under 5.",
-  "Hunger kills more people each year than AIDS, malaria, and tuberculosis combined.",
-  "1 in 9 people in the world suffer from chronic hunger.",
-  "Most people suffering from hunger live in developing countries.",
-  "Food insecurity is rising due to conflict and climate change.",
-  "Women and children are most affected by starvation.",
-  "The world produces enough food to feed everyone.",
-  "Reducing food waste could help solve world hunger."
-];
+let selectedTeam = "";
+let selectedOdds = 0;
 
-function showFact() {
-  const randomIndex = Math.floor(Math.random() * facts.length);
-  document.getElementById("fact-output").textContent = facts[randomIndex];
+const balanceDisplay = document.getElementById("balance");
+const empty = document.getElementById("empty");
+const betContent = document.getElementById("bet-content");
+
+const selectedTeamDisplay = document.getElementById("selected-team");
+const selectedOddsDisplay = document.getElementById("selected-odds");
+
+const betAmount = document.getElementById("bet-amount");
+const profitDisplay = document.getElementById("profit");
+const payoutDisplay = document.getElementById("payout");
+
+function updateBalance() {
+    balanceDisplay.textContent =
+        "$" + balance.toLocaleString("en-US", {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
+        });
 }
 
-// Smooth scrolling for nav links
-document.querySelectorAll('.navbar a').forEach(link => {
-  link.addEventListener('click', function (e) {
-    e.preventDefault();
-    const targetId = this.getAttribute('href').substring(1);
-    const targetElement = document.getElementById(targetId);
-    if (targetElement) {
-      window.scrollTo({
-        top: targetElement.offsetTop - 60,
-        behavior: 'smooth'
-      });
-    }
-  });
+function updatePayout() {
+    const amount = Number(betAmount.value) || 0;
+
+    const profit = amount * (selectedOdds - 1);
+    const payout = amount * selectedOdds;
+
+    profitDisplay.textContent =
+        "$" + profit.toFixed(2);
+
+    payoutDisplay.textContent =
+        "$" + payout.toFixed(2);
+}
+
+document.querySelectorAll(".odd").forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        selectedTeam = button.dataset.team;
+        selectedOdds = Number(button.dataset.odds);
+
+        selectedTeamDisplay.textContent = selectedTeam;
+        selectedOddsDisplay.textContent = selectedOdds.toFixed(2) + "x";
+
+        empty.classList.add("hidden");
+        betContent.classList.remove("hidden");
+
+        updatePayout();
+    });
+
 });
+
+betAmount.addEventListener("input", updatePayout);
+
+document.querySelectorAll(".quick-buttons button").forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        betAmount.value = button.dataset.amount;
+
+        updatePayout();
+    });
+
+});
+
+document.getElementById("clear").addEventListener("click", () => {
+
+    selectedTeam = "";
+    selectedOdds = 0;
+
+    betContent.classList.add("hidden");
+    empty.classList.remove("hidden");
+
+});
+
+document.getElementById("place-bet").addEventListener("click", () => {
+
+    const amount = Number(betAmount.value);
+
+    if (!selectedTeam) {
+        return;
+    }
+
+    if (amount <= 0) {
+        showToast("Enter a valid bet amount.");
+        return;
+    }
+
+    if (amount > balance) {
+        showToast("Insufficient balance.");
+        return;
+    }
+
+    balance -= amount;
+
+    updateBalance();
+
+    showToast(
+        `${selectedTeam} bet placed for $${amount.toFixed(2)}`
+    );
+
+    betContent.classList.add("hidden");
+    empty.classList.remove("hidden");
+
+});
+
+function showToast(message) {
+
+    const toast = document.getElementById("toast");
+
+    toast.textContent = message;
+    toast.style.display = "block";
+
+    setTimeout(() => {
+        toast.style.display = "none";
+    }, 3000);
+}
+
+updateBalance();
