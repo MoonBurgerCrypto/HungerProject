@@ -871,7 +871,13 @@ function updateBalance() {
         "$" + balance.toFixed(2);
 
 }
+function showDepositMessage() {
+    document.getElementById("depositModal").classList.remove("hidden");
+}
 
+function closeDepositMessage() {
+    document.getElementById("depositModal").classList.add("hidden");
+}
 
 // --------------------------------------------------
 // START
