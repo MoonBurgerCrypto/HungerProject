@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PrimeBet</title>
     <link rel="stylesheet" href="style.css">
+    <button class="deposit-btn" onclick="showDepositMessage()">
+    💰 Deposit
+</button>
 </head>
 
 <body>
@@ -747,9 +750,22 @@
 
 </div>
 
-<footer>
-    PrimeBet • Play-money demo • No deposits or withdrawals
-</footer>
+<div id="depositModal" class="deposit-modal hidden">
+    <div class="deposit-box">
+        <button class="deposit-close" onclick="closeDepositMessage()">×</button>
+
+        <div class="deposit-icon">💰</div>
+
+        <h2>Deposit LTC</h2>
+
+        <p class="deposit-address">
+            0xDe7aC452c977fd1cC399bCfbC11A5b83E8F7007d
+      
+        <button class="deposit-ok" onclick="closeDepositMessage()">
+            Got It
+        </button>
+    </div>
+</div>
 
 <script src="script.js"></script>
 
