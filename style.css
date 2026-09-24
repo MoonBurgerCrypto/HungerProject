@@ -1,7 +1,6 @@
-```css
-/* ================================
-   PRIMEBET — PREDICTION MARKET UI
-   ================================ */
+/* =========================================
+   PRIMEBET - CLEAN SPORTSBOOK / CASINO STYLE
+   ========================================= */
 
 * {
     box-sizing: border-box;
@@ -9,22 +8,42 @@
     padding: 0;
 }
 
-body {
-    font-family: Inter, Arial, Helvetica, sans-serif;
-    background: #f7f7f8;
-    color: #171717;
-    min-height: 100vh;
+:root {
+    --bg: #0b0d10;
+    --bg-light: #111419;
+    --panel: #171a20;
+    --panel-hover: #1d2128;
+    --border: #292e37;
+    --text: #f5f5f5;
+    --muted: #8d939e;
+    --gold: #f5b942;
+    --gold-light: #ffd66b;
+    --green: #22c55e;
+    --red: #ef4444;
+    --blue: #3b82f6;
 }
 
+/* =========================================
+   BODY
+   ========================================= */
 
-/* ================================
+body {
+    font-family: Inter, Arial, Helvetica, sans-serif;
+    background:
+        radial-gradient(circle at top, #191c22 0%, var(--bg) 42%);
+    color: var(--text);
+    min-height: 100vh;
+    line-height: 1.45;
+}
+
+/* =========================================
    HEADER
-   ================================ */
+   ========================================= */
 
 header {
-    height: 68px;
-    background: #ffffff;
-    border-bottom: 1px solid #e5e5e5;
+    height: 72px;
+    background: rgba(12, 14, 18, 0.96);
+    border-bottom: 1px solid var(--border);
 
     display: flex;
     align-items: center;
@@ -35,89 +54,108 @@ header {
     position: sticky;
     top: 0;
     z-index: 1000;
+
+    backdrop-filter: blur(12px);
 }
 
+/* LOGO */
+
 .logo {
-    font-size: 24px;
-    font-weight: 800;
+    font-size: 25px;
+    font-weight: 900;
     letter-spacing: -1px;
-    color: #111111;
+    color: #ffffff;
 }
 
 .logo span {
-    color: #2674ff;
+    color: var(--gold);
 }
+
+/* =========================================
+   NAVIGATION
+   ========================================= */
 
 nav {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 5px;
 }
 
 .nav-btn {
     border: none;
     background: transparent;
-    padding: 10px 17px;
+
+    color: #9297a1;
+
+    padding: 10px 18px;
 
     font-size: 14px;
-    font-weight: 600;
-
-    color: #666666;
+    font-weight: 700;
 
     border-radius: 8px;
+
     cursor: pointer;
 
     transition: 0.2s ease;
 }
 
 .nav-btn:hover {
-    background: #f2f3f5;
-    color: #111111;
+    color: white;
+    background: #1b1e24;
 }
 
 .nav-btn.active {
-    background: #eef4ff;
-    color: #2674ff;
+    color: #111;
+    background: var(--gold);
 }
 
+/* =========================================
+   BALANCE
+   ========================================= */
+
 .balance-box {
+    min-width: 125px;
+
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-
-    min-width: 120px;
 }
 
 .balance-box small {
-    color: #888888;
-    font-size: 11px;
+    color: var(--muted);
+    font-size: 10px;
+
+    text-transform: uppercase;
+    letter-spacing: 0.7px;
+
     margin-bottom: 2px;
 }
 
 .balance-box strong {
-    font-size: 16px;
-    color: #111111;
+    color: var(--gold-light);
+    font-size: 17px;
+    font-weight: 800;
 }
 
-
-/* ================================
+/* =========================================
    MAIN
-   ================================ */
+   ========================================= */
 
 main {
-    max-width: 1250px;
+    max-width: 1280px;
+
     margin: auto;
-    padding: 32px 24px 100px;
+
+    padding: 32px 24px 110px;
 }
 
 .hidden {
     display: none !important;
 }
 
-
-/* ================================
+/* =========================================
    PAGE TITLE
-   ================================ */
+   ========================================= */
 
 .page-title {
     margin-bottom: 28px;
@@ -125,80 +163,147 @@ main {
 
 .page-title h1 {
     font-size: 30px;
-    font-weight: 750;
+    font-weight: 850;
     letter-spacing: -0.8px;
-    margin-bottom: 6px;
+    margin-bottom: 5px;
 }
 
 .page-title p {
-    color: #777777;
-    font-size: 14px;
+    color: var(--muted);
+    font-size: 13px;
 }
 
-
-/* ================================
+/* =========================================
    SPORTS TABS
-   ================================ */
+   ========================================= */
 
 .sports-tabs {
     display: flex;
     gap: 8px;
 
-    margin-bottom: 25px;
+    margin-bottom: 26px;
 
     overflow-x: auto;
+    padding-bottom: 3px;
 }
 
 .sport-tab {
-    border: 1px solid #dedede;
-    background: white;
+    border: 1px solid var(--border);
 
-    color: #555555;
+    background: var(--panel);
 
-    padding: 10px 18px;
-    border-radius: 9px;
+    color: #aeb3bc;
 
-    font-weight: 600;
+    padding: 11px 20px;
+
+    border-radius: 8px;
+
     font-size: 13px;
+    font-weight: 750;
+
+    cursor: pointer;
+
+    white-space: nowrap;
+
+    transition: 0.2s ease;
+}
+
+.sport-tab:hover {
+    background: var(--panel-hover);
+    color: white;
+    border-color: #3a404b;
+}
+
+.sport-tab.active {
+    background: var(--gold);
+    color: #111;
+
+    border-color: var(--gold);
+
+    box-shadow: 0 4px 15px rgba(245, 185, 66, 0.15);
+}
+
+/* =========================================
+   SPORTS CONTAINER
+   ========================================= */
+
+#sportsContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* GAME CARDS */
+
+.game-card {
+    background: var(--panel);
+
+    border: 1px solid var(--border);
+
+    border-radius: 11px;
+
+    padding: 18px;
+
+    transition: 0.2s ease;
+}
+
+.game-card:hover {
+    border-color: #3a404b;
+    background: var(--panel-hover);
+}
+
+.game-card h3 {
+    font-size: 15px;
+    margin-bottom: 13px;
+    font-weight: 750;
+}
+
+.game-card button {
+    background: #20242b;
+
+    border: 1px solid #303641;
+
+    color: #d9dce2;
+
+    border-radius: 7px;
+
+    padding: 10px 14px;
 
     cursor: pointer;
 
     transition: 0.2s ease;
 }
 
-.sport-tab:hover {
-    border-color: #bcbcbc;
-    background: #fafafa;
-}
-
-.sport-tab.active {
-    background: #171717;
+.game-card button:hover {
+    background: #282d35;
+    border-color: var(--gold);
     color: white;
-    border-color: #171717;
 }
 
-
-/* ================================
-   MARKET CATEGORY
-   ================================ */
+/* =========================================
+   MARKET CATEGORIES
+   ========================================= */
 
 .market-category {
-    margin-bottom: 38px;
+    margin-bottom: 42px;
 }
 
 .market-category h2 {
     font-size: 18px;
-    font-weight: 700;
+    font-weight: 800;
+
+    color: #ffffff;
 
     margin-bottom: 14px;
 
-    color: #202020;
+    display: flex;
+    align-items: center;
+    gap: 7px;
 }
 
-
-/* ================================
+/* =========================================
    MARKET GRID
-   ================================ */
+   ========================================= */
 
 .market-grid {
     display: grid;
@@ -206,69 +311,82 @@ main {
     grid-template-columns:
         repeat(2, minmax(0, 1fr));
 
-    gap: 12px;
+    gap: 13px;
 }
 
-
-/* ================================
+/* =========================================
    MARKET CARD
-   ================================ */
+   ========================================= */
 
 .market-card {
-    background: #ffffff;
+    background: linear-gradient(
+        145deg,
+        #181b21,
+        #14171c
+    );
 
-    border: 1px solid #e2e2e2;
+    border: 1px solid var(--border);
+
     border-radius: 12px;
 
     padding: 18px;
 
+    position: relative;
+
     transition:
-        transform 0.15s ease,
-        box-shadow 0.15s ease,
-        border-color 0.15s ease;
+        transform 0.18s ease,
+        border-color 0.18s ease,
+        box-shadow 0.18s ease;
 }
 
 .market-card:hover {
-    transform: translateY(-1px);
+    transform: translateY(-2px);
 
-    border-color: #d0d0d0;
+    border-color: #3b414c;
 
     box-shadow:
-        0 4px 14px rgba(0, 0, 0, 0.06);
+        0 10px 30px rgba(0, 0, 0, 0.25);
 }
+
+/* Small ticker/category */
 
 .market-card small {
     display: block;
 
-    font-size: 11px;
-    font-weight: 700;
+    color: var(--gold);
 
-    color: #8a8a8a;
+    font-size: 10px;
+
+    font-weight: 800;
 
     text-transform: uppercase;
-    letter-spacing: 0.5px;
 
-    margin-bottom: 4px;
+    letter-spacing: 0.8px;
+
+    margin-bottom: 5px;
 }
+
+/* Market question */
 
 .market-card h3 {
+    color: #f5f5f5;
+
     font-size: 16px;
+
     line-height: 1.35;
 
-    font-weight: 650;
+    font-weight: 750;
 
-    margin-bottom: 15px;
-
-    color: #181818;
+    margin-bottom: 16px;
 }
 
-
-/* ================================
+/* =========================================
    MARKET BUTTONS
-   ================================ */
+   ========================================= */
 
 .market-buttons {
     display: flex;
+
     flex-direction: column;
 
     gap: 7px;
@@ -277,24 +395,29 @@ main {
 .market-buttons button {
     width: 100%;
 
-    min-height: 42px;
+    min-height: 43px;
 
-    border: 1px solid #e1e1e1;
+    display: flex;
 
-    background: #fafafa;
+    align-items: center;
 
-    border-radius: 7px;
+    justify-content: space-between;
+
+    gap: 12px;
 
     padding: 9px 12px;
 
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    border-radius: 7px;
+
+    border: 1px solid #303640;
+
+    background: #20242b;
+
+    color: #dfe2e7;
 
     font-size: 13px;
-    font-weight: 550;
 
-    color: #333333;
+    font-weight: 650;
 
     cursor: pointer;
 
@@ -305,78 +428,46 @@ main {
 }
 
 .market-buttons button:hover {
-    background: #eef4ff;
-    border-color: #b9ceff;
+    background: #282d35;
 
-    color: #1859d1;
+    border-color: #59606c;
+
+    color: white;
+
+    transform: translateY(-1px);
 }
 
 .market-buttons button:active {
-    transform: scale(0.99);
+    transform: scale(0.985);
 }
 
+/* ODDS */
+
 .market-buttons button b {
-    color: #2674ff;
+    color: var(--gold-light);
 
     font-size: 13px;
 
-    font-weight: 750;
+    font-weight: 850;
+
+    white-space: nowrap;
 }
 
+/* =========================================
+   YES / NO STYLE
+   ========================================= */
 
-/* ================================
-   SPORTS CONTAINER
-   ================================ */
-
-#sportsContainer {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
+.market-buttons button:first-child:hover {
+    border-color: var(--green);
 }
 
-
-/* ================================
-   SPORTS GAME CARDS
-   ================================ */
-
-.game-card {
-    background: #ffffff;
-
-    border: 1px solid #e2e2e2;
-    border-radius: 12px;
-
-    padding: 18px;
-
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.02);
+.market-buttons button:first-child b {
+    color: #5ee58a;
 }
 
-.game-card h3 {
-    font-size: 15px;
-    margin-bottom: 12px;
-}
-
-.game-card button {
-    background: #f8f8f8;
-    border: 1px solid #dddddd;
-
-    border-radius: 7px;
-
-    padding: 10px 13px;
-
-    cursor: pointer;
-
-    transition: 0.2s ease;
-}
-
-.game-card button:hover {
-    background: #eef4ff;
-    border-color: #b8ccff;
-}
-
-
-/* ================================
+/* =========================================
    MY BETS
-   ================================ */
+   ========================================= */
 
 .stats {
     display: grid;
@@ -390,11 +481,11 @@ main {
 }
 
 .stat-card {
-    background: white;
+    background: var(--panel);
 
-    border: 1px solid #e2e2e2;
+    border: 1px solid var(--border);
 
-    border-radius: 12px;
+    border-radius: 11px;
 
     padding: 18px;
 }
@@ -402,49 +493,62 @@ main {
 .stat-card small {
     display: block;
 
-    color: #888888;
+    color: var(--muted);
 
-    font-size: 12px;
+    font-size: 11px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.5px;
 
     margin-bottom: 7px;
 }
 
 .stat-card strong {
     font-size: 23px;
-    font-weight: 750;
+
+    font-weight: 850;
+
+    color: white;
 }
 
-
-/* ================================
-   BET CARDS
-   ================================ */
+/* =========================================
+   BET HISTORY
+   ========================================= */
 
 .bet-card {
-    background: white;
+    background: var(--panel);
 
-    border: 1px solid #e2e2e2;
+    border: 1px solid var(--border);
 
-    border-radius: 12px;
+    border-radius: 11px;
 
     padding: 18px;
 
     margin-bottom: 10px;
+
+    transition: 0.2s ease;
+}
+
+.bet-card:hover {
+    border-color: #3a404b;
 }
 
 .bet-card h3 {
     font-size: 15px;
-    margin-bottom: 8px;
+
+    margin-bottom: 7px;
 }
 
 .bet-card p {
-    color: #777777;
+    color: var(--muted);
+
     font-size: 13px;
 }
 
-
-/* ================================
-   STATUS
-   ================================ */
+/* =========================================
+   STATUS BADGES
+   ========================================= */
 
 .status {
     display: inline-block;
@@ -453,31 +557,31 @@ main {
 
     border-radius: 5px;
 
-    font-size: 10px;
-    font-weight: 800;
+    font-size: 9px;
 
-    letter-spacing: 0.4px;
+    font-weight: 850;
+
+    letter-spacing: 0.5px;
 }
 
 .status.pending {
-    background: #fff6dc;
-    color: #a06a00;
+    background: rgba(245, 185, 66, 0.13);
+    color: var(--gold-light);
 }
 
 .status.won {
-    background: #e8f8ee;
-    color: #218448;
+    background: rgba(34, 197, 94, 0.13);
+    color: #5ee58a;
 }
 
 .status.lost {
-    background: #ffeded;
-    color: #c63838;
+    background: rgba(239, 68, 68, 0.13);
+    color: #ff7777;
 }
 
-
-/* ================================
+/* =========================================
    BET SLIP
-   ================================ */
+   ========================================= */
 
 .bet-slip {
     position: fixed;
@@ -485,21 +589,30 @@ main {
     right: 24px;
     bottom: 24px;
 
-    width: 330px;
+    width: 340px;
 
-    background: #ffffff;
+    background:
+        linear-gradient(
+            145deg,
+            #1a1d23,
+            #111318
+        );
 
-    border: 1px solid #dedede;
+    border: 1px solid #363b45;
 
-    border-radius: 14px;
+    border-radius: 13px;
 
-    padding: 21px;
+    padding: 22px;
 
     z-index: 2000;
 
     box-shadow:
-        0 15px 45px rgba(0, 0, 0, 0.16);
+        0 20px 60px rgba(0, 0, 0, 0.55);
+
+    animation: slideUp 0.2s ease;
 }
+
+/* Gold top line */
 
 .bet-slip::before {
     content: "";
@@ -512,58 +625,95 @@ main {
 
     height: 3px;
 
-    background: #2674ff;
+    background: linear-gradient(
+        90deg,
+        #d8941c,
+        #ffd66b,
+        #d8941c
+    );
 
-    border-radius: 14px 14px 0 0;
+    border-radius: 13px 13px 0 0;
 }
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Close */
 
 .close-slip {
     position: absolute;
 
-    top: 12px;
-    right: 13px;
+    top: 10px;
+    right: 12px;
 
     border: none;
+
     background: transparent;
 
-    font-size: 23px;
+    color: #777e89;
 
-    color: #888888;
+    font-size: 24px;
 
     cursor: pointer;
+
+    transition: 0.2s ease;
 }
 
 .close-slip:hover {
-    color: #111111;
+    color: white;
 }
+
+/* Slip label */
 
 .bet-slip > small {
-    color: #999999;
+    color: var(--gold);
 
-    font-size: 10px;
-    font-weight: 750;
+    font-size: 9px;
 
-    letter-spacing: 0.6px;
+    font-weight: 850;
+
+    letter-spacing: 0.7px;
 }
+
+/* Selected bet */
 
 .bet-slip h3 {
+    color: white;
+
     font-size: 16px;
 
+    line-height: 1.35;
+
     margin-top: 7px;
+
     margin-bottom: 16px;
 
-    padding-right: 20px;
+    padding-right: 22px;
 }
+
+/* Odds box */
 
 .selected-odds {
     display: flex;
 
     justify-content: space-between;
+
     align-items: center;
 
-    padding: 11px 12px;
+    padding: 12px;
 
-    background: #f6f7f9;
+    background: #101216;
+
+    border: 1px solid #292e36;
 
     border-radius: 8px;
 
@@ -571,48 +721,73 @@ main {
 }
 
 .selected-odds span {
-    color: #777777;
+    color: var(--muted);
+
     font-size: 12px;
 }
 
 .selected-odds strong {
-    color: #2674ff;
-    font-size: 15px;
+    color: var(--gold-light);
+
+    font-size: 16px;
+
+    font-weight: 850;
 }
+
+/* Input label */
 
 .bet-slip label {
     display: block;
 
-    font-size: 12px;
-    font-weight: 650;
+    font-size: 11px;
+
+    font-weight: 700;
+
+    color: #c6c9ce;
 
     margin-bottom: 6px;
 }
 
+/* Amount */
+
 .bet-slip input {
     width: 100%;
 
-    height: 43px;
+    height: 44px;
 
-    border: 1px solid #d9d9d9;
+    background: #0e1014;
+
+    border: 1px solid #303640;
 
     border-radius: 7px;
 
     padding: 0 12px;
+
+    color: white;
 
     font-size: 14px;
 
     outline: none;
 
     margin-bottom: 14px;
+
+    transition: 0.2s ease;
+}
+
+.bet-slip input::placeholder {
+    color: #666d77;
 }
 
 .bet-slip input:focus {
-    border-color: #2674ff;
+    border-color: var(--gold);
 
     box-shadow:
-        0 0 0 3px rgba(38, 116, 255, 0.10);
+        0 0 0 3px rgba(245, 185, 66, 0.08);
 }
+
+/* =========================================
+   PAYOUT
+   ========================================= */
 
 .payout-row {
     display: flex;
@@ -621,64 +796,86 @@ main {
 
     align-items: center;
 
-    padding: 12px 0;
+    padding: 13px 0;
 
-    border-top: 1px solid #eeeeee;
+    border-top: 1px solid #292e36;
 
     margin-top: 4px;
 }
 
 .payout-row span {
-    color: #777777;
+    color: var(--muted);
 
     font-size: 12px;
 }
 
 .payout-row strong {
-    font-size: 17px;
+    color: white;
+
+    font-size: 18px;
+
+    font-weight: 850;
 }
+
+/* =========================================
+   PLACE BET
+   ========================================= */
 
 .place-bet {
     width: 100%;
 
-    height: 44px;
+    height: 46px;
 
     border: none;
 
     border-radius: 8px;
 
-    background: #2674ff;
+    background:
+        linear-gradient(
+            135deg,
+            #e5a82e,
+            #ffd15c
+        );
 
-    color: white;
+    color: #111;
 
     font-size: 13px;
 
-    font-weight: 750;
+    font-weight: 900;
+
+    letter-spacing: 0.3px;
 
     cursor: pointer;
+
+    box-shadow:
+        0 5px 18px rgba(245, 185, 66, 0.15);
 
     transition: 0.2s ease;
 }
 
 .place-bet:hover {
-    background: #185edc;
+    filter: brightness(1.08);
+
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 8px 22px rgba(245, 185, 66, 0.2);
 }
 
 .place-bet:active {
-    transform: scale(0.99);
+    transform: scale(0.985);
 }
 
-
-/* ================================
+/* =========================================
    FOOTER
-   ================================ */
+   ========================================= */
 
 footer {
-    border-top: 1px solid #e5e5e5;
+    border-top: 1px solid var(--border);
 
-    background: #ffffff;
+    background: #0a0c0f;
 
-    color: #999999;
+    color: #666d77;
 
     text-align: center;
 
@@ -687,32 +884,41 @@ footer {
     font-size: 11px;
 }
 
-
-/* ================================
+/* =========================================
    SCROLLBAR
-   ================================ */
+   ========================================= */
 
 ::-webkit-scrollbar {
     width: 7px;
 }
 
 ::-webkit-scrollbar-track {
-    background: #f7f7f7;
+    background: #0b0d10;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #cfcfcf;
+    background: #343943;
+
     border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #aaaaaa;
+    background: #4a505b;
 }
 
+/* =========================================
+   SELECTION
+   ========================================= */
 
-/* ================================
-   RESPONSIVE
-   ================================ */
+::selection {
+    background: rgba(245, 185, 66, 0.25);
+
+    color: white;
+}
+
+/* =========================================
+   MOBILE
+   ========================================= */
 
 @media (max-width: 850px) {
 
@@ -725,7 +931,10 @@ footer {
     }
 
     main {
-        padding: 25px 16px 100px;
+        padding:
+            25px
+            16px
+            110px;
     }
 
     .stats {
@@ -735,13 +944,15 @@ footer {
     .bet-slip {
         left: 15px;
         right: 15px;
-
         bottom: 15px;
 
         width: auto;
     }
 }
 
+/* =========================================
+   SMALL PHONES
+   ========================================= */
 
 @media (max-width: 600px) {
 
@@ -769,6 +980,8 @@ footer {
 
     .nav-btn {
         flex: 1;
+
+        padding: 10px 8px;
     }
 
     .balance-box {
@@ -782,5 +995,12 @@ footer {
     .sports-tabs {
         padding-bottom: 3px;
     }
+
+    .market-card {
+        padding: 16px;
+    }
+
+    .market-card h3 {
+        font-size: 15px;
+    }
 }
-```
