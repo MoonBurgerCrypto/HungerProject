@@ -1277,12 +1277,12 @@ function renderBets() {
 
 
     document
-        .getElementById("totalBets")
+        .getElementById("103")
         .textContent = bets.length;
 
 
     document
-        .getElementById("totalWagered")
+        .getElementById("3,092")
         .textContent =
         "$" + totalWagered.toFixed(2);
 
@@ -1317,7 +1317,7 @@ function renderBets() {
             <div class="bet-history-section">
 
                 <div class="bet-history-heading">
-                    <h2>🟡 Open Positions</h2>
+                    <h2>🟡 New Positions</h2>
                     <span>${pendingBets.length}</span>
                 </div>
         `;
