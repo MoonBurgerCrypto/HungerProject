@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -12,371 +13,743 @@
 <header>
     <div class="logo">PRIME<span>BET</span></div>
 
-    <nav>
-        <button class="nav-btn active" onclick="showPage('sports')">Sports</button>
-        <button class="nav-btn" onclick="showPage('markets')">📈 Markets</button>
-        <button class="nav-btn" onclick="showPage('bets')">My Bets</button>
-    </nav>
+```
+<nav>
+    <button class="nav-btn active" onclick="showPage('sports')">Sports</button>
+    <button class="nav-btn" onclick="showPage('markets')">📈 Markets</button>
+    <button class="nav-btn" onclick="showPage('bets')">My Bets</button>
+</nav>
 
-    <div class="balance-box">
-        <small>Balance</small>
-        <strong id="balance">$2,301.56</strong>
-    </div>
+<div class="balance-box">
+    <small>Balance</small>
+    <strong id="balance">$2,301.56</strong>
+</div>
+```
+
 </header>
 
-
 <!-- SPORTS -->
+
 <main id="sportsPage">
 
-    <div class="sports-tabs">
-        <button class="sport-tab active" onclick="loadSport('NFL', this)">🏈 NFL</button>
-        <button class="sport-tab" onclick="loadSport('NBA', this)">🏀 NBA</button>
-        <button class="sport-tab" onclick="loadSport('MLB', this)">⚾ MLB</button>
-        <button class="sport-tab" onclick="loadSport('NHL', this)">🏒 NHL</button>
-    </div>
+```
+<div class="sports-tabs">
+    <button class="sport-tab active" onclick="loadSport('NFL', this)">🏈 NFL</button>
+    <button class="sport-tab" onclick="loadSport('NBA', this)">🏀 NBA</button>
+    <button class="sport-tab" onclick="loadSport('MLB', this)">⚾ MLB</button>
+    <button class="sport-tab" onclick="loadSport('NHL', this)">🏒 NHL</button>
+</div>
 
-    <div class="page-title">
-        <h1 id="sportTitle">NFL</h1>
-        <p>Games, props and futures</p>
-    </div>
+<div class="page-title">
+    <h1 id="sportTitle">NFL</h1>
+    <p>Games, props and futures</p>
+</div>
 
-    <div id="sportsContainer"></div>
+<div id="sportsContainer"></div>
+```
 
 </main>
 
+<!-- MARKETS -->
 
-<!-- FINANCIAL MARKETS -->
 <main id="marketsPage" class="hidden">
 
-    <div class="page-title">
-        <h1>📈 Financial Markets</h1>
-        <p>Stocks, crypto, indexes, commodities and economic markets</p>
-    </div>
-
-    <div class="market-category">
-        <h2>📊 Stocks</h2>
-
-        <div class="market-grid">
-
-            <div class="market-card">
-                <div>
-                    <small>AAPL</small>
-                    <h3>Apple</h3>
-                </div>
-
-                <div class="market-buttons">
-                    <button onclick="selectBet('Apple above $250', 1.82)">
-                        Above $250 <b>1.82x</b>
-                    </button>
-
-                    <button onclick="selectBet('Apple below $250', 2.02)">
-                        Below $250 <b>2.02x</b>
-                    </button>
-                </div>
-            </div>
-
-
-            <div class="market-card">
-                <div>
-                    <small>TSLA</small>
-                    <h3>Tesla</h3>
-                </div>
-
-                <div class="market-buttons">
-                    <button onclick="selectBet('Tesla above $400', 2.15)">
-                        Above $400 <b>2.15x</b>
-                    </button>
-
-                    <button onclick="selectBet('Tesla below $400', 1.78)">
-                        Below $400 <b>1.78x</b>
-                    </button>
-                </div>
-            </div>
-
-
-            <div class="market-card">
-                <div>
-                    <small>NVDA</small>
-                    <h3>Nvidia</h3>
-                </div>
-
-                <div class="market-buttons">
-                    <button onclick="selectBet('Nvidia above $200', 1.91)">
-                        Above $200 <b>1.91x</b>
-                    </button>
-
-                    <button onclick="selectBet('Nvidia below $200', 1.91)">
-                        Below $200 <b>1.91x</b>
-                    </button>
-                </div>
-            </div>
-
-
-            <div class="market-card">
-                <div>
-                    <small>MSFT</small>
-                    <h3>Microsoft</h3>
-                </div>
-
-                <div class="market-buttons">
-                    <button onclick="selectBet('Microsoft above $550', 2.05)">
-                        Above $550 <b>2.05x</b>
-                    </button>
-
-                    <button onclick="selectBet('Microsoft below $550', 1.84)">
-                        Below $550 <b>1.84x</b>
-                    </button>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-
-    <div class="market-category">
-        <h2>₿ Crypto</h2>
-
-        <div class="market-grid">
-
-            <div class="market-card">
-                <small>BTC</small>
-                <h3>Bitcoin</h3>
-
-                <div class="market-buttons">
-                    <button onclick="selectBet('Bitcoin above $125,000', 2.12)">
-                        Above $125K <b>2.12x</b>
-                    </button>
-
-                    <button onclick="selectBet('Bitcoin below $125,000', 1.79)">
-                        Below $125K <b>1.79x</b>
-                    </button>
-                </div>
-            </div>
-
-
-            <div class="market-card">
-                <small>ETH</small>
-                <h3>Ethereum</h3>
-
-                <div class="market-buttons">
-                    <button onclick="selectBet('Ethereum above $5,000', 2.20)">
-                        Above $5K <b>2.20x</b>
-                    </button>
-
-                    <button onclick="selectBet('Ethereum below $5,000', 1.74)">
-                        Below $5K <b>1.74x</b>
-                    </button>
-                </div>
-            </div>
-
-
-            <div class="market-card">
-                <small>SOL</small>
-                <h3>Solana</h3>
-
-                <div class="market-buttons">
-                    <button onclick="selectBet('Solana above $300', 2.35)">
-                        Above $300 <b>2.35x</b>
-                    </button>
-
-                    <button onclick="selectBet('Solana below $300', 1.67)">
-                        Below $300 <b>1.67x</b>
-                    </button>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-
-    <div class="market-category">
-        <h2>📉 Indexes</h2>
-
-        <div class="market-grid">
-
-            <div class="market-card">
-                <h3>S&P 500</h3>
-
-                <div class="market-buttons">
-                    <button onclick="selectBet('S&P 500 Up', 1.86)">
-                        Up <b>1.86x</b>
-                    </button>
-
-                    <button onclick="selectBet('S&P 500 Down', 2.08)">
-                        Down <b>2.08x</b>
-                    </button>
-                </div>
-            </div>
-
-
-            <div class="market-card">
-                <h3>Nasdaq</h3>
-
-                <div class="market-buttons">
-                    <button onclick="selectBet('Nasdaq Up', 1.92)">
-                        Up <b>1.92x</b>
-                    </button>
-
-                    <button onclick="selectBet('Nasdaq Down', 2.01)">
-                        Down <b>2.01x</b>
-                    </button>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-
-    <div class="market-category">
-        <h2>🛢️ Commodities</h2>
-
-        <div class="market-grid">
-
-            <div class="market-card">
-                <h3>Gold</h3>
-
-                <div class="market-buttons">
-                    <button onclick="selectBet('Gold above $4,000', 2.05)">
-                        Above $4K <b>2.05x</b>
-                    </button>
-
-                    <button onclick="selectBet('Gold below $4,000', 1.83)">
-                        Below $4K <b>1.83x</b>
-                    </button>
-                </div>
-            </div>
-
-
-            <div class="market-card">
-                <h3>Oil</h3>
-
-                <div class="market-buttons">
-                    <button onclick="selectBet('Oil above $100', 2.22)">
-                        Above $100 <b>2.22x</b>
-                    </button>
-
-                    <button onclick="selectBet('Oil below $100', 1.76)">
-                        Below $100 <b>1.76x</b>
-                    </button>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-
-    <div class="market-category">
-        <h2>🏦 Economic Events</h2>
-
-        <div class="market-grid">
-
-            <div class="market-card">
-                <h3>Fed Rate Decision</h3>
-
-                <div class="market-buttons">
-                    <button onclick="selectBet('Fed raises rates', 2.55)">
-                        Raise <b>2.55x</b>
-                    </button>
-
-                    <button onclick="selectBet('Fed holds rates', 1.58)">
-                        Hold <b>1.58x</b>
-                    </button>
-                </div>
-            </div>
-
-
-            <div class="market-card">
-                <h3>Inflation</h3>
-
-                <div class="market-buttons">
-                    <button onclick="selectBet('CPI above expectations', 2.08)">
-                        Above <b>2.08x</b>
-                    </button>
-
-                    <button onclick="selectBet('CPI below expectations', 1.82)">
-                        Below <b>1.82x</b>
-                    </button>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-</main>
-
-
-<!-- MY BETS -->
-<main id="betsPage" class="hidden">
-
-    <div class="page-title">
-        <h1>My Bets</h1>
-        <p>Your betting history</p>
-    </div>
-
-    <div class="stats">
-
-        <div class="stat-card">
-            <small>Total Bets</small>
-            <strong id="totalBets">0</strong>
-        </div>
-
-        <div class="stat-card">
-            <small>Total Wagered</small>
-            <strong id="totalWagered">$0.00</strong>
-        </div>
-
-        <div class="stat-card">
-            <small>Potential Payout</small>
-            <strong id="potentialPayout">$0.00</strong>
-        </div>
-
-    </div>
-
-    <div id="betsContainer"></div>
-
-</main>
-
-
-<!-- BET SLIP -->
-<div id="betSlip" class="bet-slip hidden">
-
-    <button class="close-slip" onclick="closeSlip()">×</button>
-
-    <small>SELECTED MARKET</small>
-
-    <h3 id="selectedBet">No selection</h3>
-
-    <div class="selected-odds">
-        <span>Odds</span>
-        <strong id="selectedOdds">1.00x</strong>
-    </div>
-
-    <label>Bet Amount</label>
-
-    <input
-        id="betAmount"
-        type="number"
-        min="1"
-        step="0.01"
-        placeholder="Enter amount"
-        oninput="calculatePayout()"
-    >
-
-
-
-    <div class="payout-row">
-        <span>Total Payout</span>
-        <strong id="payout">$0.00</strong>
-    </div>
-
-    <button class="place-bet" onclick="placeBet()">
-        PLACE BET
-    </button>
-
+```
+<div class="page-title">
+    <h1>📈 Markets</h1>
+    <p>Finance, politics, technology, culture and internet markets</p>
 </div>
 
 
+<!-- STOCKS -->
+<div class="market-category">
+    <h2>📊 Stocks</h2>
 
+    <div class="market-grid">
+
+        <div class="market-card">
+            <small>AAPL</small>
+            <h3>Apple</h3>
+
+            <div class="market-buttons">
+                <button onclick="selectBet('Apple above $250', 1.82)">
+                    Above $250 <b>1.82x</b>
+                </button>
+                <button onclick="selectBet('Apple below $250', 2.02)">
+                    Below $250 <b>2.02x</b>
+                </button>
+            </div>
+        </div>
+
+        <div class="market-card">
+            <small>TSLA</small>
+            <h3>Tesla</h3>
+
+            <div class="market-buttons">
+                <button onclick="selectBet('Tesla above $400', 2.15)">
+                    Above $400 <b>2.15x</b>
+                </button>
+                <button onclick="selectBet('Tesla below $400', 1.78)">
+                    Below $400 <b>1.78x</b>
+                </button>
+            </div>
+        </div>
+
+        <div class="market-card">
+            <small>NVDA</small>
+            <h3>Nvidia</h3>
+
+            <div class="market-buttons">
+                <button onclick="selectBet('Nvidia above $200', 1.91)">
+                    Above $200 <b>1.91x</b>
+                </button>
+                <button onclick="selectBet('Nvidia below $200', 1.91)">
+                    Below $200 <b>1.91x</b>
+                </button>
+            </div>
+        </div>
+
+        <div class="market-card">
+            <small>MSFT</small>
+            <h3>Microsoft</h3>
+
+            <div class="market-buttons">
+                <button onclick="selectBet('Microsoft above $550', 2.05)">
+                    Above $550 <b>2.05x</b>
+                </button>
+                <button onclick="selectBet('Microsoft below $550', 1.84)">
+                    Below $550 <b>1.84x</b>
+                </button>
+            </div>
+        </div>
+
+        <div class="market-card">
+            <small>AMZN</small>
+            <h3>Amazon</h3>
+
+            <div class="market-buttons">
+                <button onclick="selectBet('Amazon above $250', 1.94)">
+                    Above $250 <b>1.94x</b>
+                </button>
+                <button onclick="selectBet('Amazon below $250', 1.88)">
+                    Below $250 <b>1.88x</b>
+                </button>
+            </div>
+        </div>
+
+        <div class="market-card">
+            <small>GOOGL</small>
+            <h3>Alphabet</h3>
+
+            <div class="market-buttons">
+                <button onclick="selectBet('Google above $250', 2.08)">
+                    Above $250 <b>2.08x</b>
+                </button>
+                <button onclick="selectBet('Google below $250', 1.82)">
+                    Below $250 <b>1.82x</b>
+                </button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- CRYPTO -->
+<div class="market-category">
+    <h2>₿ Crypto</h2>
+
+    <div class="market-grid">
+
+        <div class="market-card">
+            <small>BTC</small>
+            <h3>Bitcoin</h3>
+
+            <div class="market-buttons">
+                <button onclick="selectBet('Bitcoin above $125,000', 2.12)">
+                    Above $125K <b>2.12x</b>
+                </button>
+                <button onclick="selectBet('Bitcoin below $125,000', 1.79)">
+                    Below $125K <b>1.79x</b>
+                </button>
+            </div>
+        </div>
+
+        <div class="market-card">
+            <small>ETH</small>
+            <h3>Ethereum</h3>
+
+            <div class="market-buttons">
+                <button onclick="selectBet('Ethereum above $5,000', 2.20)">
+                    Above $5K <b>2.20x</b>
+                </button>
+                <button onclick="selectBet('Ethereum below $5,000', 1.74)">
+                    Below $5K <b>1.74x</b>
+                </button>
+            </div>
+        </div>
+
+        <div class="market-card">
+            <small>SOL</small>
+            <h3>Solana</h3>
+
+            <div class="market-buttons">
+                <button onclick="selectBet('Solana above $300', 2.35)">
+                    Above $300 <b>2.35x</b>
+                </button>
+                <button onclick="selectBet('Solana below $300', 1.67)">
+                    Below $300 <b>1.67x</b>
+                </button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- INDEXES -->
+<div class="market-category">
+    <h2>📉 Indexes</h2>
+
+    <div class="market-grid">
+
+        <div class="market-card">
+            <h3>S&P 500</h3>
+
+            <div class="market-buttons">
+                <button onclick="selectBet('S&P 500 Up', 1.86)">
+                    Up <b>1.86x</b>
+                </button>
+                <button onclick="selectBet('S&P 500 Down', 2.08)">
+                    Down <b>2.08x</b>
+                </button>
+            </div>
+        </div>
+
+        <div class="market-card">
+            <h3>Nasdaq</h3>
+
+            <div class="market-buttons">
+                <button onclick="selectBet('Nasdaq Up', 1.92)">
+                    Up <b>1.92x</b>
+                </button>
+                <button onclick="selectBet('Nasdaq Down', 2.01)">
+                    Down <b>2.01x</b>
+                </button>
+            </div>
+        </div>
+
+        <div class="market-card">
+            <h3>Dow Jones</h3>
+
+            <div class="market-buttons">
+                <button onclick="selectBet('Dow Jones Up', 1.88)">
+                    Up <b>1.88x</b>
+                </button>
+                <button onclick="selectBet('Dow Jones Down', 2.05)">
+                    Down <b>2.05x</b>
+                </button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- COMMODITIES -->
+<div class="market-category">
+    <h2>🛢️ Commodities</h2>
+
+    <div class="market-grid">
+
+        <div class="market-card">
+            <h3>Gold</h3>
+
+            <div class="market-buttons">
+                <button onclick="selectBet('Gold above $4,000', 2.05)">
+                    Above $4K <b>2.05x</b>
+                </button>
+                <button onclick="selectBet('Gold below $4,000', 1.83)">
+                    Below $4K <b>1.83x</b>
+                </button>
+            </div>
+        </div>
+
+        <div class="market-card">
+            <h3>Oil</h3>
+
+            <div class="market-buttons">
+                <button onclick="selectBet('Oil above $100', 2.22)">
+                    Above $100 <b>2.22x</b>
+                </button>
+                <button onclick="selectBet('Oil below $100', 1.76)">
+                    Below $100 <b>1.76x</b>
+                </button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- POLITICS -->
+<div class="market-category">
+    <h2>🏛️ Politics & Public Figures</h2>
+
+    <div class="market-grid">
+
+        <div class="market-card">
+            <small>TRUMP</small>
+            <h3>What will Trump say next?</h3>
+
+            <div class="market-buttons">
+                <button onclick="selectBet('Trump says Great', 2.20)">
+                    "Great" <b>2.20x</b>
+                </button>
+                <button onclick="selectBet('Trump says Beautiful', 2.55)">
+                    "Beautiful" <b>2.55x</b>
+                </button>
+                <button onclick="selectBet('Trump mentions Economy', 2.05)">
+                    Economy <b>2.05x</b>
+                </button>
+                <button onclick="selectBet('Trump mentions China', 2.35)">
+                    China <b>2.35x</b>
+                </button>
+            </div>
+        </div>
+
+        <div class="market-card">
+            <h3>What topic will Trump mention?</h3>
+
+            <div class="market-buttons">
+                <button onclick="selectBet('Trump mentions tariffs', 2.10)">
+                    Tariffs <b>2.10x</b>
+                </button>
+                <button onclick="selectBet('Trump mentions immigration', 2.25)">
+                    Immigration <b>2.25x</b>
+                </button>
+                <button onclick="selectBet('Trump mentions taxes', 2.45)">
+                    Taxes <b>2.45x</b>
+                </button>
+                <button onclick="selectBet('Trump mentions sports', 3.10)">
+                    Sports <b>3.10x</b>
+                </button>
+            </div>
+        </div>
+
+        <div class="market-card">
+            <h3>Who will Trump mention?</h3>
+
+            <div class="market-buttons">
+                <button onclick="selectBet('Trump mentions a foreign leader', 2.15)">
+                    Foreign leader <b>2.15x</b>
+                </button>
+                <button onclick="selectBet('Trump mentions a US politician', 2.30)">
+                    US politician <b>2.30x</b>
+                </button>
+                <button onclick="selectBet('Trump mentions a company', 2.70)">
+                    Company <b>2.70x</b>
+                </button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- INTERNET / CREATOR -->
+<div class="market-category">
+    <h2>🌐 Internet & Creators</h2>
+
+    <div class="market-grid">
+
+        <div class="market-card">
+            <small>MRBEAST</small>
+            <h3>What will MrBeast say in his next video?</h3>
+
+            <div class="market-buttons">
+                <button onclick="selectBet('MrBeast says YouTube', 2.10)">
+                    YouTube <b>2.10x</b>
+                </button>
+                <button onclick="selectBet('MrBeast says challenge', 1.90)">
+                    Challenge <b>1.90x</b>
+                </button>
+                <button onclick="selectBet('MrBeast says money', 2.05)">
+                    Money <b>2.05x</b>
+                </button>
+                <button onclick="selectBet('MrBeast says subscribe', 2.25)">
+                    Subscribe <b>2.25x</b>
+                </button>
+            </div>
+        </div>
+
+        <div class="market-card">
+            <h3>MrBeast next video theme</h3>
+
+            <div class="market-buttons">
+                <button onclick="selectBet('MrBeast next video challenge', 1.95)">
+                    Challenge <b>1.95x</b>
+                </button>
+                <button onclick="selectBet('MrBeast next video giveaway', 2.20)">
+                    Giveaway <b>2.20x</b>
+                </button>
+                <button onclick="selectBet('MrBeast next video competition', 2.35)">
+                    Competition <b>2.35x</b>
+                </button>
+                <button onclick="selectBet('MrBeast next video travel', 3.00)">
+                    Travel <b>3.00x</b>
+                </button>
+            </div>
+        </div>
+
+        <div class="market-card">
+            <h3>YouTube</h3>
+
+            <div class="market-buttons">
+                <button onclick="selectBet('Major YouTube channel reaches 100M subscribers', 2.30)">
+                    100M milestone <b>2.30x</b>
+                </button>
+                <button onclick="selectBet('YouTube creator breaks subscriber record', 2.75)">
+                    New record <b>2.75x</b>
+                </button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- WORLD RECORDS -->
+<div class="market-category">
+    <h2>🏆 World Records</h2>
+
+    <div class="market-grid">
+
+        <div class="market-card">
+            <h3>How many world records will be broken this year?</h3>
+
+            <div class="market-buttons">
+                <button onclick="selectBet('Fewer than 50 world records broken', 2.10)">
+                    Under 50 <b>2.10x</b>
+                </button>
+                <button onclick="selectBet('50 to 99 world records broken', 2.00)">
+                    50–99 <b>2.00x</b>
+                </button>
+                <button onclick="selectBet('100 to 149 world records broken', 2.40)">
+                    100–149 <b>2.40x</b>
+                </button>
+                <button onclick="selectBet('150 or more world records broken', 3.20)">
+                    150+ <b>3.20x</b>
+                </button>
+            </div>
+        </div>
+
+        <div class="market-card">
+            <h3>Will a new speed record be broken?</h3>
+
+            <div class="market-buttons">
+                <button onclick="selectBet('New speed world record broken', 1.85)">
+                    Yes <b>1.85x</b>
+                </button>
+                <button onclick="selectBet('No new speed world record', 2.10)">
+                    No <b>2.10x</b>
+                </button>
+            </div>
+        </div>
+
+        <div class="market-card">
+            <h3>Will a new Guinness World Record be set?</h3>
+
+            <div class="market-buttons">
+                <button onclick="selectBet('New Guinness World Record set', 1.45)">
+                    Yes <b>1.45x</b>
+                </button>
+                <button onclick="selectBet('No new Guinness World Record', 4.00)">
+                    No <b>4.00x</b>
+                </button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- TECHNOLOGY -->
+<div class="market-category">
+    <h2>💻 Technology & AI</h2>
+
+    <div class="market-grid">
+
+        <div class="market-card">
+            <h3>Major AI announcement this month?</h3>
+
+            <div class="market-buttons">
+                <button onclick="selectBet('Major AI announcement this month', 1.55)">
+                    Yes <b>1.55x</b>
+                </button>
+                <button onclick="selectBet('No major AI announcement this month', 2.75)">
+                    No <b>2.75x</b>
+                </button>
+            </div>
+        </div>
+
+        <div class="market-card">
+            <h3>Next major AI model release</h3>
+
+            <div class="market-buttons">
+                <button onclick="selectBet('AI model released this month', 2.10)">
+                    This month <b>2.10x</b>
+                </button>
+                <button onclick="selectBet('AI model released next month', 2.25)">
+                    Next month <b>2.25x</b>
+                </button>
+                <button onclick="selectBet('AI model released later', 2.80)">
+                    Later <b>2.80x</b>
+                </button>
+            </div>
+        </div>
+
+        <div class="market-card">
+            <h3>Will a major tech company announce a new device?</h3>
+
+            <div class="market-buttons">
+                <button onclick="selectBet('Major tech company announces new device', 1.70)">
+                    Yes <b>1.70x</b>
+                </button>
+                <button onclick="selectBet('No major device announcement', 2.35)">
+                    No <b>2.35x</b>
+                </button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- ENTERTAINMENT -->
+<div class="market-category">
+    <h2>🎬 Entertainment</h2>
+
+    <div class="market-grid">
+
+        <div class="market-card">
+            <h3>Next #1 movie at the box office</h3>
+
+            <div class="market-buttons">
+                <button onclick="selectBet('Existing franchise movie #1', 1.85)">
+                    Franchise <b>1.85x</b>
+                </button>
+                <button onclick="selectBet('Original movie #1', 3.20)">
+                    Original <b>3.20x</b>
+                </button>
+                <button onclick="selectBet('Animated movie #1', 2.65)">
+                    Animated <b>2.65x</b>
+                </button>
+            </div>
+        </div>
+
+        <div class="market-card">
+            <h3>Next major streaming hit</h3>
+
+            <div class="market-buttons">
+                <button onclick="selectBet('Netflix show becomes major hit', 1.95)">
+                    Netflix <b>1.95x</b>
+                </button>
+                <button onclick="selectBet('Disney show becomes major hit', 2.40)">
+                    Disney <b>2.40x</b>
+                </button>
+                <button onclick="selectBet('Amazon show becomes major hit', 2.55)">
+                    Amazon <b>2.55x</b>
+                </button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- ECONOMIC EVENTS -->
+<div class="market-category">
+    <h2>🏦 Economic Events</h2>
+
+    <div class="market-grid">
+
+        <div class="market-card">
+            <h3>Fed Rate Decision</h3>
+
+            <div class="market-buttons">
+                <button onclick="selectBet('Fed raises rates', 2.55)">
+                    Raise <b>2.55x</b>
+                </button>
+                <button onclick="selectBet('Fed holds rates', 1.58)">
+                    Hold <b>1.58x</b>
+                </button>
+                <button onclick="selectBet('Fed cuts rates', 3.10)">
+                    Cut <b>3.10x</b>
+                </button>
+            </div>
+        </div>
+
+        <div class="market-card">
+            <h3>Inflation</h3>
+
+            <div class="market-buttons">
+                <button onclick="selectBet('CPI above expectations', 2.08)">
+                    Above <b>2.08x</b>
+                </button>
+                <button onclick="selectBet('CPI below expectations', 1.82)">
+                    Below <b>1.82x</b>
+                </button>
+            </div>
+        </div>
+
+        <div class="market-card">
+            <h3>Unemployment</h3>
+
+            <div class="market-buttons">
+                <button onclick="selectBet('Unemployment rises', 2.05)">
+                    Rises <b>2.05x</b>
+                </button>
+                <button onclick="selectBet('Unemployment falls', 2.00)">
+                    Falls <b>2.00x</b>
+                </button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- RANDOM / FUN -->
+<div class="market-category">
+    <h2>🔥 Trending & Fun</h2>
+
+    <div class="market-grid">
+
+        <div class="market-card">
+            <h3>Will a viral meme hit 1M posts?</h3>
+
+            <div class="market-buttons">
+                <button onclick="selectBet('Viral meme hits 1 million posts', 1.90)">
+                    Yes <b>1.90x</b>
+                </button>
+                <button onclick="selectBet('Viral meme does not hit 1 million posts', 2.15)">
+                    No <b>2.15x</b>
+                </button>
+            </div>
+        </div>
+
+        <div class="market-card">
+            <h3>Will a celebrity announce a new project?</h3>
+
+            <div class="market-buttons">
+                <button onclick="selectBet('Celebrity announces new project', 1.65)">
+                    Yes <b>1.65x</b>
+                </button>
+                <button onclick="selectBet('No celebrity project announcement', 2.50)">
+                    No <b>2.50x</b>
+                </button>
+            </div>
+        </div>
+
+        <div class="market-card">
+            <h3>Internet trend of the month</h3>
+
+            <div class="market-buttons">
+                <button onclick="selectBet('Gaming trend dominates', 2.10)">
+                    Gaming <b>2.10x</b>
+                </button>
+                <button onclick="selectBet('Sports trend dominates', 2.30)">
+                    Sports <b>2.30x</b>
+                </button>
+                <button onclick="selectBet('Meme trend dominates', 2.20)">
+                    Memes <b>2.20x</b>
+                </button>
+            </div>
+        </div>
+
+    </div>
+</div>
+```
+
+</main>
+
+<!-- MY BETS -->
+
+<main id="betsPage" class="hidden">
+
+```
+<div class="page-title">
+    <h1>My Bets</h1>
+    <p>Your betting history</p>
+</div>
+
+<div class="stats">
+
+    <div class="stat-card">
+        <small>Total Bets</small>
+        <strong id="totalBets">0</strong>
+    </div>
+
+    <div class="stat-card">
+        <small>Total Wagered</small>
+        <strong id="totalWagered">$0.00</strong>
+    </div>
+
+    <div class="stat-card">
+        <small>Potential Payout</small>
+        <strong id="potentialPayout">$0.00</strong>
+    </div>
+
+</div>
+
+<div id="betsContainer"></div>
+```
+
+</main>
+
+<!-- BET SLIP -->
+
+<div id="betSlip" class="bet-slip hidden">
+
+```
+<button class="close-slip" onclick="closeSlip()">×</button>
+
+<small>SELECTED MARKET</small>
+
+<h3 id="selectedBet">No selection</h3>
+
+<div class="selected-odds">
+    <span>Odds</span>
+    <strong id="selectedOdds">1.00x</strong>
+</div>
+
+<label>Bet Amount</label>
+
+<input
+    id="betAmount"
+    type="number"
+    min="1"
+    step="0.01"
+    placeholder="Enter amount"
+    oninput="calculatePayout()"
+>
+
+<div class="payout-row">
+    <span>Total Payout</span>
+    <strong id="payout">$0.00</strong>
+</div>
+
+<button class="place-bet" onclick="placeBet()">
+    PLACE BET
+</button>
+```
+
+</div>
+
+<footer>
+    PrimeBet • Play-money demo • No deposits or withdrawals
+</footer>
 
 <script src="script.js"></script>
 
