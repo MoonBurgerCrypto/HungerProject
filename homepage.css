@@ -1,168 +1,376 @@
-/* Base Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 body {
-  margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #121212;
-  color: #f4f4f4;
-  line-height: 1.7;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #080b10;
+    color: #fff;
 }
 
-/* Header */
 header {
-  background-color: #ff944d;
-  color: white;
-  text-align: center;
-  padding: 2rem 1rem;
-  border-bottom: 4px solid #e66e1f;
+    height: 70px;
+    background: #10151d;
+    border-bottom: 1px solid #252c37;
+    display: flex;
+    align-items: center;
+    padding: 0 35px;
+    gap: 50px;
 }
 
-main {
-  padding: 2rem;
-  max-width: 850px;
-  margin: auto;
+.logo {
+    font-size: 23px;
+    font-weight: 900;
+    letter-spacing: 1px;
 }
 
-h1, h2 {
-  margin-bottom: 0.6rem;
+.logo span {
+    color: #27e06f;
 }
 
-section {
-  margin-bottom: 2rem;
+nav {
+    display: flex;
+    gap: 30px;
+    flex: 1;
 }
 
-ul {
-  padding-left: 1.5rem;
-  list-style: disc;
+nav a {
+    color: #8e98a7;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 25px 5px;
 }
 
-/* Footer */
-footer {
-  text-align: center;
-  padding: 1rem;
-  background-color: #222;
-  font-size: 0.9rem;
-  color: #aaa;
-  margin-top: 2rem;
+nav a.active {
+    color: #fff;
+    border-bottom: 3px solid #27e06f;
 }
 
-/* Navbar */
-.navbar {
-  background-color: #1a1a1a;
-  padding: 0.5rem 1rem;
-  border-bottom: 3px solid #ff944d;
+.balance {
+    text-align: right;
 }
 
-.navbar ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
+.balance span {
+    display: block;
+    font-size: 11px;
+    color: #7e8998;
 }
 
-.navbar li {
-  margin: 0;
+.balance strong {
+    color: #27e06f;
+    font-size: 17px;
 }
 
-.navbar a {
-  display: inline-block;
-  padding: 0.6rem 1.2rem;
-  color: white;
-  background-color: #ff944d;
-  text-decoration: none;
-  font-weight: bold;
-  border-radius: 6px;
-  transition: transform 0.2s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+.layout {
+    max-width: 1250px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 360px;
+    gap: 25px;
+    padding: 30px;
 }
 
-.navbar a:hover {
-  background-color: #e66e1f;
-  transform: scale(1.05);
-  box-shadow: 0 0 12px rgba(255, 204, 0, 0.5);
+.hero {
+    background: linear-gradient(120deg, #111923, #0d1219);
+    border: 1px solid #252e39;
+    border-radius: 12px;
+    padding: 30px;
+    margin-bottom: 20px;
 }
 
-/* General Buttons */
-.action-button {
-  background-color: #ff944d;
-  color: white;
-  border: none;
-  padding: 0.6rem 1.2rem;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 1rem;
-  transition: transform 0.2s ease, box-shadow 0.3s ease;
+.hero h1 {
+    font-size: 30px;
+    margin-bottom: 7px;
 }
 
-.action-button:hover {
-  background-color: #e66e1f;
-  transform: scale(1.05);
-  box-shadow: 0 0 15px rgba(255, 204, 0, 0.6);
+.hero p {
+    color: #8d98a7;
 }
 
-/* Random Fact */
-#fact-output {
-  margin-top: 1rem;
-  font-style: italic;
-  color: #ddd;
+.sports-tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
 }
 
-/* Image Banner */
-.banner img {
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
-  margin-top: 1rem;
+.sports-tabs button {
+    background: #121821;
+    border: 1px solid #29323e;
+    color: #a8b1be;
+    padding: 12px 22px;
+    border-radius: 8px;
+    cursor: pointer;
 }
 
-/* Call to Action Section */
-.cta-section {
-  text-align: center;
-  background-color: #1f1f1f;
-  padding: 2rem;
-  border-radius: 10px;
-  margin-top: 2rem;
+.sports-tabs button.selected {
+    background: #183b29;
+    border-color: #27e06f;
+    color: #fff;
 }
 
-.cta-section h2 {
-  color: #ff944d;
-  margin-bottom: 1rem;
+.league {
+    background: #10151d;
+    border: 1px solid #252c37;
+    border-radius: 12px;
+    overflow: hidden;
 }
 
-.cta-section p {
-  font-size: 1.1rem;
-  color: #ccc;
-  margin-bottom: 1.5rem;
+.league-header {
+    padding: 18px 22px;
+    border-bottom: 1px solid #252c37;
+    display: flex;
+    justify-content: space-between;
 }
 
-.highlight-stats {
-  list-style: none;
-  padding: 0;
-  margin-bottom: 1.5rem;
+.league-header span {
+    color: #7d8897;
+    font-size: 13px;
 }
 
-.highlight-stats li {
-  color: #f4f4f4;
-  font-size: 1.1rem;
-  margin: 0.5rem 0;
+.game {
+    padding: 22px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #222a34;
 }
 
-/* Button inside CTA */
-.nav-button {
-  display: inline-block;
-  text-align: center;
-  padding: 0.7rem 1rem;
-  background-color: #ff944d;
-  color: white;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: bold;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.15);
-  transition: transform 0.2s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+.game:last-child {
+    border-bottom: none;
 }
 
-.nav-button:hover {
-  background-color: #e66e1f;
-  transform: scale(1.05);
-  box-shadow: 0 0 15px rgba(255, 204, 0, 0.4);
+.game-info small {
+    color: #788493;
+    font-size: 12px;
+}
+
+.game-info h3 {
+    margin-top: 8px;
+    font-size: 15px;
+}
+
+.odds {
+    display: flex;
+    gap: 8px;
+}
+
+.odd {
+    min-width: 120px;
+    padding: 12px;
+    background: #171e28;
+    border: 1px solid #303947;
+    border-radius: 7px;
+    color: #fff;
+    cursor: pointer;
+    text-align: left;
+}
+
+.odd:hover {
+    background: #1d2a23;
+    border-color: #27e06f;
+}
+
+.odd span {
+    display: block;
+    font-size: 12px;
+    color: #8c97a5;
+}
+
+.odd b {
+    display: block;
+    margin-top: 5px;
+    color: #27e06f;
+    font-size: 16px;
+}
+
+.betslip {
+    background: #10151d;
+    border: 1px solid #252c37;
+    border-radius: 12px;
+    height: fit-content;
+    position: sticky;
+    top: 20px;
+}
+
+.betslip-header {
+    padding: 18px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #252c37;
+}
+
+.betslip-header h2 {
+    font-size: 18px;
+}
+
+#clear {
+    background: none;
+    border: none;
+    color: #7f8a98;
+    cursor: pointer;
+}
+
+#empty {
+    text-align: center;
+    padding: 55px 20px;
+    color: #818c9a;
+}
+
+.ticket-icon {
+    font-size: 35px;
+    margin-bottom: 12px;
+}
+
+#empty small {
+    display: block;
+    margin-top: 7px;
+    color: #5e6875;
+}
+
+.hidden {
+    display: none;
+}
+
+#bet-content {
+    padding: 18px;
+}
+
+.selected-bet {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    background: #171e28;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.selected-bet small {
+    color: #7f8a97;
+}
+
+.selected-bet h3 {
+    margin-top: 5px;
+}
+
+.selected-bet strong {
+    color: #27e06f;
+}
+
+label {
+    display: block;
+    color: #8994a2;
+    font-size: 12px;
+    margin-bottom: 7px;
+}
+
+.amount-box {
+    display: flex;
+    align-items: center;
+    background: #080b10;
+    border: 1px solid #303947;
+    border-radius: 7px;
+    padding: 0 12px;
+}
+
+.amount-box span {
+    color: #788492;
+}
+
+.amount-box input {
+    width: 100%;
+    padding: 13px;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: white;
+    font-size: 17px;
+}
+
+.quick-buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 5px;
+    margin: 10px 0 20px;
+}
+
+.quick-buttons button {
+    background: #171e28;
+    border: 1px solid #303947;
+    color: #aeb6c0;
+    padding: 8px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.payout {
+    display: flex;
+    justify-content: space-between;
+    padding: 9px 0;
+    color: #8d98a5;
+}
+
+.payout strong {
+    color: #fff;
+}
+
+#place-bet {
+    width: 100%;
+    margin-top: 15px;
+    padding: 14px;
+    background: #27e06f;
+    border: none;
+    border-radius: 7px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#place-bet:hover {
+    background: #36f17e;
+}
+
+#toast {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #1b242e;
+    border: 1px solid #33404e;
+    padding: 14px 22px;
+    border-radius: 8px;
+    display: none;
+}
+
+@media (max-width: 850px) {
+    .layout {
+        grid-template-columns: 1fr;
+        padding: 15px;
+    }
+
+    .betslip {
+        position: static;
+    }
+
+    header {
+        padding: 0 15px;
+        gap: 15px;
+    }
+
+    nav {
+        display: none;
+    }
+
+    .game {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .odds {
+        width: 100%;
+    }
+
+    .odd {
+        flex: 1;
+    }
 }
