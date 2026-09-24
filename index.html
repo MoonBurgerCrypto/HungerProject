@@ -6,15 +6,16 @@
     <title>PrimeBet</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
 <header>
     <div class="logo">PRIME<span>BET</span></div>
 
     <nav>
-        <a class="active">Sports</a>
-        <a>Live</a>
-        <a>My Bets</a>
+        <a id="sportsTab" class="active">Sports</a>
+        <a id="liveTab">Live</a>
+        <a id="myBetsTab">My Bets</a>
     </nav>
 
     <div class="balance">
@@ -26,121 +27,220 @@
 <div class="layout">
 
     <main>
-        <div class="hero">
-            <h1>Sportsbook</h1>
-            <p>Choose your event and place a bet</p>
+
+        <!-- SPORTS PAGE -->
+        <div id="sportsPage">
+
+            <div class="hero">
+                <h1>Sportsbook</h1>
+                <p>Choose your event and place a bet</p>
+            </div>
+
+            <div class="sports-tabs">
+                <button class="selected">🏈 NFL</button>
+                <button>🏀 NBA</button>
+                <button>⚾ MLB</button>
+                <button>🏒 NHL</button>
+            </div>
+
+            <section class="league">
+
+                <div class="league-header">
+                    <h2>🏈 NFL</h2>
+                    <span>Game Lines</span>
+                </div>
+
+                <div class="game">
+
+                    <div class="game-info">
+                        <small>Today • 7:20 PM</small>
+                        <h3>Packers</h3>
+                        <h3>Vikings</h3>
+                    </div>
+
+                    <div class="odds">
+
+                        <button class="odd"
+                            data-team="Packers"
+                            data-odds="2.26">
+                            <span>Packers</span>
+                            <b>2.26x</b>
+                        </button>
+
+                        <button class="odd"
+                            data-team="Vikings"
+                            data-odds="1.72">
+                            <span>Vikings</span>
+                            <b>1.72x</b>
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <div class="game">
+
+                    <div class="game-info">
+                        <small>Tomorrow • 12:00 PM</small>
+                        <h3>Lions</h3>
+                        <h3>Bears</h3>
+                    </div>
+
+                    <div class="odds">
+
+                        <button class="odd"
+                            data-team="Lions"
+                            data-odds="1.91">
+                            <span>Lions</span>
+                            <b>1.91x</b>
+                        </button>
+
+                        <button class="odd"
+                            data-team="Bears"
+                            data-odds="2.40">
+                            <span>Bears</span>
+                            <b>2.40x</b>
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <div class="game">
+
+                    <div class="game-info">
+                        <small>Sunday • 3:25 PM</small>
+                        <h3>Cowboys</h3>
+                        <h3>Eagles</h3>
+                    </div>
+
+                    <div class="odds">
+
+                        <button class="odd"
+                            data-team="Cowboys"
+                            data-odds="2.15">
+                            <span>Cowboys</span>
+                            <b>2.15x</b>
+                        </button>
+
+                        <button class="odd"
+                            data-team="Eagles"
+                            data-odds="1.80">
+                            <span>Eagles</span>
+                            <b>1.80x</b>
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </section>
+
         </div>
 
-        <div class="sports-tabs">
-            <button class="selected">🏈 NFL</button>
-            <button>🏀 NBA</button>
-            <button>⚾ MLB</button>
-            <button>🏒 NHL</button>
+
+        <!-- MY BETS PAGE -->
+        <div id="myBetsPage" class="hidden">
+
+            <div class="hero">
+                <h1>My Bets</h1>
+                <p>Track your bets and results</p>
+            </div>
+
+            <div class="stats">
+
+                <div class="stat">
+                    <span>Total Bets</span>
+                    <strong id="totalBets">0</strong>
+                </div>
+
+                <div class="stat">
+                    <span>Total Wagered</span>
+                    <strong id="totalWagered">$0.00</strong>
+                </div>
+
+                <div class="stat">
+                    <span>Potential Payout</span>
+                    <strong id="totalPotential">$0.00</strong>
+                </div>
+
+            </div>
+
+            <div class="bets-container">
+
+                <div class="bets-title">
+                    <h2>Bet History</h2>
+                </div>
+
+                <div id="betsList">
+                    <div class="no-bets">
+                        <div>🎟️</div>
+                        <h3>No bets yet</h3>
+                        <p>Your placed bets will appear here.</p>
+                    </div>
+                </div>
+
+            </div>
+
         </div>
 
-        <section class="league">
-            <div class="league-header">
-                <h2>🏈 NFL</h2>
-                <span>Game Lines</span>
-            </div>
-
-            <div class="game">
-                <div class="game-info">
-                    <small>Today • 7:20 PM</small>
-                    <h3>Packers</h3>
-                    <h3>Vikings</h3>
-                </div>
-
-                <div class="odds">
-                    <button class="odd" data-team="Packers" data-odds="2.26">
-                        <span>Packers</span>
-                        <b>2.26x</b>
-                    </button>
-
-                    <button class="odd" data-team="Vikings" data-odds="1.72">
-                        <span>Vikings</span>
-                        <b>1.72x</b>
-                    </button>
-                </div>
-            </div>
-
-            <div class="game">
-                <div class="game-info">
-                    <small>Tomorrow • 12:00 PM</small>
-                    <h3>Lions</h3>
-                    <h3>Bears</h3>
-                </div>
-
-                <div class="odds">
-                    <button class="odd" data-team="Lions" data-odds="1.91">
-                        <span>Lions</span>
-                        <b>1.91x</b>
-                    </button>
-
-                    <button class="odd" data-team="Bears" data-odds="2.40">
-                        <span>Bears</span>
-                        <b>2.40x</b>
-                    </button>
-                </div>
-            </div>
-
-            <div class="game">
-                <div class="game-info">
-                    <small>Sunday • 3:25 PM</small>
-                    <h3>Cowboys</h3>
-                    <h3>Eagles</h3>
-                </div>
-
-                <div class="odds">
-                    <button class="odd" data-team="Cowboys" data-odds="2.15">
-                        <span>Cowboys</span>
-                        <b>2.15x</b>
-                    </button>
-
-                    <button class="odd" data-team="Eagles" data-odds="1.80">
-                        <span>Eagles</span>
-                        <b>1.80x</b>
-                    </button>
-                </div>
-            </div>
-        </section>
     </main>
 
+
+    <!-- BET SLIP -->
+
     <aside class="betslip">
+
         <div class="betslip-header">
             <h2>Bet Slip</h2>
             <button id="clear">Clear</button>
         </div>
 
         <div id="empty">
+
             <div class="ticket-icon">🎟️</div>
+
             <p>Your bet slip is empty</p>
+
             <small>Select an odd to add a bet</small>
+
         </div>
+
 
         <div id="bet-content" class="hidden">
 
             <div class="selected-bet">
+
                 <div>
                     <small>Moneyline</small>
                     <h3 id="selected-team">Packers</h3>
                 </div>
 
                 <strong id="selected-odds">2.26x</strong>
+
             </div>
 
             <label>Bet Amount</label>
 
             <div class="amount-box">
+
                 <span>$</span>
-                <input id="bet-amount" type="number" value="100" min="1">
+
+                <input
+                    id="bet-amount"
+                    type="number"
+                    value="100"
+                    min="1">
+
             </div>
 
             <div class="quick-buttons">
+
                 <button data-amount="25">$25</button>
                 <button data-amount="50">$50</button>
                 <button data-amount="100">$100</button>
                 <button data-amount="500">$500</button>
+
             </div>
 
             <div class="payout">
@@ -153,15 +253,20 @@
                 <strong id="payout">$226.00</strong>
             </div>
 
-            <button id="place-bet">Place Bet</button>
+            <button id="place-bet">
+                Place Bet
+            </button>
 
         </div>
+
     </aside>
 
 </div>
 
+
 <div id="toast"></div>
 
 <script src="script.js"></script>
+
 </body>
 </html>
