@@ -1152,7 +1152,49 @@ function renderMarketMovers() {
     });
 
 }
+function showPage(page) {
 
+    const pages = [
+        "sportsPage",
+        "marketsPage",
+        "betsPage",
+        "profilePage"
+    ];
+
+    pages.forEach(function(pageId) {
+
+        const element = document.getElementById(pageId);
+
+        if (element) {
+            element.classList.add("hidden");
+        }
+
+    });
+
+
+    const selectedPage = document.getElementById(page + "Page");
+
+    if (selectedPage) {
+        selectedPage.classList.remove("hidden");
+    }
+
+
+    // Update navigation buttons
+
+    document.querySelectorAll(".nav-btn").forEach(function(button) {
+        button.classList.remove("active");
+    });
+
+
+    // Close bet slip when changing pages
+
+    const betSlip = document.getElementById("betSlip");
+
+    if (betSlip) {
+        betSlip.classList.add("hidden");
+    }
+
+}
 
 // ==================================================
 // RANDOM MARKET MOVEMENT
