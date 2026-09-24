@@ -1,4 +1,4 @@
-const DATA_VERSION = "primebet-v3";
+const DATA_VERSION = "primebet-v4";
 
 let balance;
 let bets;
@@ -6,9 +6,9 @@ let selectedBet = "";
 let selectedOdds = 1;
 
 
-// --------------------------------------------------
-// DEMO DATA
-// --------------------------------------------------
+// ==================================================
+// SPORTS DATA
+// ==================================================
 
 const sports = {
 
@@ -295,9 +295,9 @@ const sports = {
 };
 
 
-// --------------------------------------------------
+// ==================================================
 // INITIALIZE
-// --------------------------------------------------
+// ==================================================
 
 function initialize() {
 
@@ -325,131 +325,224 @@ function initialize() {
     }
 
     updateBalance();
-    loadSport("NFL", document.querySelector(".sport-tab"));
+
+    loadSport(
+        "NFL",
+        document.querySelector(".sport-tab")
+    );
 }
 
 
-// --------------------------------------------------
-// DEMO BETS
-// --------------------------------------------------
+// ==================================================
+// DEMO BET HISTORY
+// ==================================================
 
 function createDemoBets() {
 
-    const selections = [
+    return [
 
-        ["Packers", 1.61],
-        ["Vikings", 1.88],
-        ["Chiefs", 2.05],
-        ["Eagles", 1.78],
-        ["Longest Field Goal Over 49.5 yards", 1.91],
-        ["Passing Yards Over 265.5", 1.87],
-        ["Celtics", 1.72],
-        ["Timberwolves", 2.05],
-        ["Player Points Over 24.5", 1.91],
-        ["Player Rebounds Over 8.5", 1.84],
-        ["Dodgers", 1.55],
-        ["Yankees", 1.64],
-        ["Total Runs Over 8.5", 1.90],
-        ["Pitcher Strikeouts Over 6.5", 1.82],
-        ["Maple Leafs", 1.74],
-        ["Wild", 2.05],
-        ["Total Goals Over 6.5", 1.95],
-        ["Goalie Saves Over 27.5", 1.88],
-        ["Bitcoin above $125,000", 2.12],
-        ["Ethereum below $5,000", 1.74],
-        ["Apple above $250", 1.82],
-        ["Tesla below $400", 1.78],
-        ["S&P 500 Up", 1.86],
-        ["Nasdaq Down", 2.01],
-        ["Gold above $4,000", 2.05],
-        ["Oil below $100", 1.76],
-        ["Fed holds rates", 1.58],
-        ["CPI above expectations", 2.08],
-        ["Super Bowl Winner — Chiefs", 5.25],
-        ["NBA Champion — Timberwolves", 9.00],
-        ["World Series Winner — Dodgers", 4.50],
-        ["Stanley Cup Winner — Avalanche", 6.00]
+        // ------------------------------
+        // NEW / PENDING
+        // ------------------------------
+
+        {
+            selection: "Packers",
+            odds: 1.61,
+            amount: 25,
+            payout: 40.25,
+            status: "PENDING",
+            date: "Today"
+        },
+
+        {
+            selection: "Timberwolves",
+            odds: 2.05,
+            amount: 50,
+            payout: 102.50,
+            status: "PENDING",
+            date: "Today"
+        },
+
+        {
+            selection: "Bitcoin above $125,000",
+            odds: 2.12,
+            amount: 100,
+            payout: 212.00,
+            status: "PENDING",
+            date: "Today"
+        },
+
+        {
+            selection: "Trump mentions tariffs",
+            odds: 2.10,
+            amount: 50,
+            payout: 105.00,
+            status: "PENDING",
+            date: "Today"
+        },
+
+        {
+            selection: "MrBeast next video — Challenge",
+            odds: 1.95,
+            amount: 40,
+            payout: 78.00,
+            status: "PENDING",
+            date: "Today"
+        },
+
+
+        // ------------------------------
+        // SETTLED / ALREADY HAPPENED
+        // ------------------------------
+
+        {
+            selection: "Eagles",
+            odds: 1.78,
+            amount: 75,
+            payout: 133.50,
+            status: "WON",
+            date: "Yesterday"
+        },
+
+        {
+            selection: "Longest Field Goal Over 49.5 yards",
+            odds: 1.91,
+            amount: 100,
+            payout: 191.00,
+            status: "WON",
+            date: "Yesterday"
+        },
+
+        {
+            selection: "Celtics",
+            odds: 1.72,
+            amount: 150,
+            payout: 258.00,
+            status: "LOST",
+            date: "2 days ago"
+        },
+
+        {
+            selection: "Dodgers",
+            odds: 1.55,
+            amount: 200,
+            payout: 310.00,
+            status: "WON",
+            date: "2 days ago"
+        },
+
+        {
+            selection: "Nasdaq Down",
+            odds: 2.01,
+            amount: 50,
+            payout: 100.50,
+            status: "LOST",
+            date: "3 days ago"
+        },
+
+        {
+            selection: "Gold above $4,000",
+            odds: 2.05,
+            amount: 75,
+            payout: 153.75,
+            status: "WON",
+            date: "3 days ago"
+        },
+
+        {
+            selection: "Fed holds rates",
+            odds: 1.58,
+            amount: 125,
+            payout: 197.50,
+            status: "WON",
+            date: "4 days ago"
+        },
+
+        {
+            selection: "World Series Winner — Dodgers",
+            odds: 4.50,
+            amount: 25,
+            payout: 112.50,
+            status: "PENDING",
+            date: "5 days ago"
+        },
+
+        {
+            selection: "NBA Champion — Timberwolves",
+            odds: 9.00,
+            amount: 20,
+            payout: 180.00,
+            status: "PENDING",
+            date: "5 days ago"
+        },
+
+        {
+            selection: "New Guinness World Record set",
+            odds: 1.45,
+            amount: 100,
+            payout: 145.00,
+            status: "WON",
+            date: "6 days ago"
+        }
 
     ];
-
-    const amounts = [
-        25,
-        40,
-        50,
-        75,
-        100,
-        125,
-        150,
-        200,
-        250,
-        300
-    ];
-
-    const statuses = [
-        "PENDING",
-        "PENDING",
-        "PENDING",
-        "WON",
-        "LOST",
-        "PENDING"
-    ];
-
-    return selections.map((item, index) => {
-
-        const amount =
-            amounts[index % amounts.length];
-
-        const odds = item[1];
-
-        return {
-            selection: item[0],
-            odds: odds,
-            amount: amount,
-            payout: amount * odds,
-            status: statuses[index % statuses.length],
-            date: index < 3
-                ? "Today"
-                : index < 10
-                    ? "Yesterday"
-                    : `${index} days ago`
-        };
-
-    });
-
 }
 
 
-// --------------------------------------------------
+// ==================================================
 // PAGE SWITCHING
-// --------------------------------------------------
+// ==================================================
 
 function showPage(page) {
 
-    document.getElementById("sportsPage")
-        .classList.toggle("hidden", page !== "sports");
+    document
+        .getElementById("sportsPage")
+        .classList.toggle(
+            "hidden",
+            page !== "sports"
+        );
 
-    document.getElementById("marketsPage")
-        .classList.toggle("hidden", page !== "markets");
+    document
+        .getElementById("marketsPage")
+        .classList.toggle(
+            "hidden",
+            page !== "markets"
+        );
 
-    document.getElementById("betsPage")
-        .classList.toggle("hidden", page !== "bets");
+    document
+        .getElementById("betsPage")
+        .classList.toggle(
+            "hidden",
+            page !== "bets"
+        );
 
-    document.querySelectorAll(".nav-btn")
-        .forEach(button => button.classList.remove("active"));
+    document
+        .querySelectorAll(".nav-btn")
+        .forEach(button =>
+            button.classList.remove("active")
+        );
+
 
     if (page === "sports") {
 
-        document.querySelectorAll(".nav-btn")[0]
+        document
+            .querySelectorAll(".nav-btn")[0]
             .classList.add("active");
 
-    } else if (page === "markets") {
+    }
 
-        document.querySelectorAll(".nav-btn")[1]
+    else if (page === "markets") {
+
+        document
+            .querySelectorAll(".nav-btn")[1]
             .classList.add("active");
 
-    } else {
+    }
 
-        document.querySelectorAll(".nav-btn")[2]
+    else {
+
+        document
+            .querySelectorAll(".nav-btn")[2]
             .classList.add("active");
 
         renderBets();
@@ -459,258 +552,346 @@ function showPage(page) {
 }
 
 
-// --------------------------------------------------
-// SPORTS
-// --------------------------------------------------
+// ==================================================
+// LOAD SPORTS
+// ==================================================
 
 function loadSport(sport, button) {
 
     document
         .querySelectorAll(".sport-tab")
-        .forEach(btn => btn.classList.remove("active"));
+        .forEach(btn =>
+            btn.classList.remove("active")
+        );
 
     if (button) {
         button.classList.add("active");
     }
 
-    document.getElementById("sportTitle").textContent = sport;
+    document
+        .getElementById("sportTitle")
+        .textContent = sport;
 
     const container =
-        document.getElementById("sportsContainer");
+        document.getElementById(
+            "sportsContainer"
+        );
 
     const data = sports[sport];
 
     let html = "";
 
 
+    // ==================================================
     // GAMES
+    // ==================================================
 
-    html += `<div class="game-section">
-        <h2>Games</h2>`;
+    html += `
+        <div class="game-section">
+
+            <div class="section-heading">
+                <h2>🏟️ Games</h2>
+                <span>Moneyline</span>
+            </div>
+    `;
+
 
     data.games.forEach(game => {
 
         html += `
-        <div class="game-card">
+            <div class="game-card">
 
-            <div class="game-header">
-                <div class="game-title">
-                    ${game.title}
+                <div class="game-header">
+
+                    <div class="game-title">
+                        ${game.title}
+                    </div>
+
+                    <div class="game-time">
+                        ${game.time}
+                    </div>
+
                 </div>
 
-                <div class="game-time">
-                    ${game.time}
-                </div>
-            </div>
-
-            <div class="market-buttons">
+                <div class="game-odds">
         `;
+
 
         game.markets.forEach(market => {
 
             html += `
                 <button
-                    onclick="selectBet('${market[0]} — ${game.title}', ${market[1]})">
+                    class="game-bet-button"
+                    onclick="selectBet('${market[0]} — ${game.title}', ${market[1]})"
+                >
 
-                    ${market[0]}
+                    <span>
+                        ${market[0]}
+                    </span>
 
-                    <b>${market[1].toFixed(2)}x</b>
+                    <b>
+                        ${Number(market[1]).toFixed(2)}x
+                    </b>
 
                 </button>
             `;
 
         });
 
-        html += `
-            </div>
 
-        </div>`;
+        html += `
+                </div>
+            </div>
+        `;
 
     });
 
-    html += `</div>`;
-
-
-    // PROPS
 
     html += `
-    <div class="game-section">
-
-        <h2>🔥 Player & Game Props</h2>
-
-        <div class="prop-grid">
+        </div>
     `;
+
+
+    // ==================================================
+    // PROPS
+    // ==================================================
+
+    html += `
+        <div class="game-section">
+
+            <div class="section-heading">
+                <h2>🔥 Player & Game Props</h2>
+                <span>Popular</span>
+            </div>
+
+            <div class="prop-grid">
+    `;
+
 
     data.props.forEach((prop, index) => {
 
         const overOdds =
-            (1.75 + (index % 5) * 0.08).toFixed(2);
+            1.75 + (index % 5) * 0.08;
 
         const underOdds =
-            (1.80 + ((index + 2) % 5) * 0.07).toFixed(2);
+            1.80 + ((index + 2) % 5) * 0.07;
+
 
         html += `
-        <div class="prop">
+            <div class="prop">
 
-            <div class="prop-name">
-                ${prop[0]}
+                <div class="prop-name">
+                    ${prop[0]}
+                </div>
+
+                <div class="prop-buttons">
+
+                    <button
+                        onclick="selectBet('${prop[0]} ${prop[1]}', ${overOdds.toFixed(2)})"
+                    >
+
+                        <span>
+                            ${prop[1]}
+                        </span>
+
+                        <b>
+                            ${overOdds.toFixed(2)}x
+                        </b>
+
+                    </button>
+
+
+                    <button
+                        onclick="selectBet('${prop[0]} ${prop[2]}', ${underOdds.toFixed(2)})"
+                    >
+
+                        <span>
+                            ${prop[2]}
+                        </span>
+
+                        <b>
+                            ${underOdds.toFixed(2)}x
+                        </b>
+
+                    </button>
+
+                </div>
+
             </div>
-
-            <div class="prop-buttons">
-
-                <button
-                    onclick="selectBet('${prop[0]} ${prop[1]}', ${overOdds})">
-
-                    ${prop[1]}
-
-                    <span>${overOdds}x</span>
-
-                </button>
-
-                <button
-                    onclick="selectBet('${prop[0]} ${prop[2]}', ${underOdds})">
-
-                    ${prop[2]}
-
-                    <span>${underOdds}x</span>
-
-                </button>
-
-            </div>
-
-        </div>
         `;
 
     });
 
+
     html += `
+            </div>
         </div>
-    </div>
     `;
 
 
+    // ==================================================
     // FUTURES
+    // ==================================================
 
     html += `
-    <div class="game-section">
+        <div class="game-section">
 
-        <h2>🏆 Futures</h2>
+            <div class="section-heading">
+                <h2>🏆 Futures</h2>
+                <span>Long term</span>
+            </div>
 
-        <div class="future-list">
+            <div class="future-list">
     `;
+
 
     data.futures.forEach(future => {
 
         html += `
-        <div class="future">
+            <div class="future">
 
-            <span>${future[0]}</span>
+                <span>
+                    ${future[0]}
+                </span>
 
-            <button
-                onclick="selectBet('${future[0]}', ${future[1]})">
+                <button
+                    onclick="selectBet('${future[0]}', ${future[1]})"
+                >
 
-                ${future[1].toFixed(2)}x
+                    ${Number(future[1]).toFixed(2)}x
 
-            </button>
+                </button>
 
-        </div>
+            </div>
         `;
 
     });
 
+
     html += `
+            </div>
         </div>
-    </div>
     `;
 
 
     container.innerHTML = html;
-
 }
 
 
-// --------------------------------------------------
+// ==================================================
 // BET SLIP
-// --------------------------------------------------
+// ==================================================
 
 function selectBet(selection, odds) {
 
     selectedBet = selection;
+
     selectedOdds = Number(odds);
 
-    document.getElementById("selectedBet")
+
+    document
+        .getElementById("selectedBet")
         .textContent = selection;
 
-    document.getElementById("selectedOdds")
-        .textContent = selectedOdds.toFixed(2) + "x";
 
-    document.getElementById("betAmount").value = "";
+    document
+        .getElementById("selectedOdds")
+        .textContent =
+        selectedOdds.toFixed(2) + "x";
 
-    document.getElementById("profit")
+
+    document
+        .getElementById("betAmount")
+        .value = "";
+
+
+    // FIXED:
+    // Your HTML doesn't contain #profit,
+    // so we no longer try to modify it.
+
+
+    document
+        .getElementById("payout")
         .textContent = "$0.00";
 
-    document.getElementById("payout")
-        .textContent = "$0.00";
 
-    document.getElementById("betSlip")
+    document
+        .getElementById("betSlip")
         .classList.remove("hidden");
 
 }
 
 
+// ==================================================
+// CLOSE BET SLIP
+// ==================================================
+
 function closeSlip() {
 
-    document.getElementById("betSlip")
+    document
+        .getElementById("betSlip")
         .classList.add("hidden");
 
 }
 
 
+// ==================================================
+// CALCULATE PAYOUT
+// ==================================================
+
 function calculatePayout() {
 
     const amount =
-        Number(document.getElementById("betAmount").value) || 0;
+        Number(
+            document.getElementById(
+                "betAmount"
+            ).value
+        ) || 0;
+
 
     const payout =
         amount * selectedOdds;
 
-    const profit =
-        payout - amount;
 
-    document.getElementById("profit")
-        .textContent =
-        "$" + profit.toFixed(2);
-
-    document.getElementById("payout")
+    document
+        .getElementById("payout")
         .textContent =
         "$" + payout.toFixed(2);
 
 }
 
 
-// --------------------------------------------------
+// ==================================================
 // PLACE BET
-// --------------------------------------------------
+// ==================================================
 
 function placeBet() {
 
     const amount =
-        Number(document.getElementById("betAmount").value);
+        Number(
+            document.getElementById(
+                "betAmount"
+            ).value
+        );
+
 
     if (!amount || amount <= 0) {
 
-        alert("Enter a valid bet amount.");
+        alert(
+            "Enter a valid bet amount."
+        );
 
         return;
-
     }
+
 
     if (amount > balance) {
 
-        alert("Not enough balance.");
+        alert(
+            "Not enough balance."
+        );
 
         return;
-
     }
 
 
@@ -744,51 +925,198 @@ function placeBet() {
 
     closeSlip();
 
-    alert("Bet placed!");
+    renderBets();
+
+
+    alert(
+        "Bet placed!"
+    );
 
 }
 
 
-// --------------------------------------------------
+// ==================================================
 // MY BETS
-// --------------------------------------------------
+// ==================================================
 
 function renderBets() {
 
     const container =
-        document.getElementById("betsContainer");
+        document.getElementById(
+            "betsContainer"
+        );
+
 
     let totalWagered = 0;
+
     let potentialPayout = 0;
 
 
     bets.forEach(bet => {
 
-        totalWagered += Number(bet.amount);
+        totalWagered +=
+            Number(bet.amount);
 
-        potentialPayout += Number(bet.payout);
+
+        if (bet.status === "PENDING") {
+
+            potentialPayout +=
+                Number(bet.payout);
+
+        }
 
     });
 
 
-    document.getElementById("totalBets")
+    document
+        .getElementById("totalBets")
         .textContent = bets.length;
 
-    document.getElementById("totalWagered")
+
+    document
+        .getElementById("totalWagered")
         .textContent =
         "$" + totalWagered.toFixed(2);
 
-    document.getElementById("potentialPayout")
+
+    document
+        .getElementById("potentialPayout")
         .textContent =
         "$" + potentialPayout.toFixed(2);
 
 
-    container.innerHTML = bets.map(bet => {
+    const pendingBets =
+        bets.filter(
+            bet =>
+                bet.status === "PENDING"
+        );
 
-        const statusClass =
-            bet.status.toLowerCase();
 
-        return `
+    const settledBets =
+        bets.filter(
+            bet =>
+                bet.status === "WON" ||
+                bet.status === "LOST"
+        );
+
+
+    let html = "";
+
+
+    // ==================================================
+    // PENDING
+    // ==================================================
+
+    if (pendingBets.length > 0) {
+
+        html += `
+            <div class="bet-history-section">
+
+                <div class="bet-history-heading">
+                    <h2>🟡 Open Positions</h2>
+                    <span>${pendingBets.length}</span>
+                </div>
+        `;
+
+
+        pendingBets.forEach(bet => {
+
+            html += createBetHTML(bet);
+
+        });
+
+
+        html += `
+            </div>
+        `;
+
+    }
+
+
+    // ==================================================
+    // SETTLED
+    // ==================================================
+
+    if (settledBets.length > 0) {
+
+        html += `
+            <div class="bet-history-section settled-section">
+
+                <div class="bet-history-heading">
+                    <h2>📋 Settled Positions</h2>
+                    <span>${settledBets.length}</span>
+                </div>
+        `;
+
+
+        settledBets.forEach(bet => {
+
+            html += createBetHTML(bet);
+
+        });
+
+
+        html += `
+            </div>
+        `;
+
+    }
+
+
+    if (!html) {
+
+        html = `
+            <div class="empty-bets">
+                <div>📭</div>
+                <h3>No positions yet</h3>
+                <p>Choose a market to place your first position.</p>
+            </div>
+        `;
+
+    }
+
+
+    container.innerHTML = html;
+
+}
+
+
+// ==================================================
+// CREATE BET HISTORY CARD
+// ==================================================
+
+function createBetHTML(bet) {
+
+    const statusClass =
+        bet.status.toLowerCase();
+
+
+    let resultText = "";
+
+
+    if (bet.status === "WON") {
+
+        resultText =
+            `+$${Number(bet.payout).toFixed(2)}`;
+
+    }
+
+    else if (bet.status === "LOST") {
+
+        resultText =
+            `-$${Number(bet.amount).toFixed(2)}`;
+
+    }
+
+    else {
+
+        resultText =
+            `$${Number(bet.payout).toFixed(2)} potential`;
+
+    }
+
+
+    return `
         <div class="bet-history">
 
             <div class="bet-history-top">
@@ -815,39 +1143,45 @@ function renderBets() {
             <div class="bet-details">
 
                 <div>
-                    <small>Bet</small>
+                    <small>Position</small>
+
                     <strong>
                         $${Number(bet.amount).toFixed(2)}
                     </strong>
                 </div>
 
+
                 <div>
                     <small>Odds</small>
+
                     <strong>
                         ${Number(bet.odds).toFixed(2)}x
                     </strong>
                 </div>
 
+
                 <div>
-                    <small>Payout</small>
-                    <strong>
-                        $${Number(bet.payout).toFixed(2)}
+                    <small>
+                        ${bet.status === "PENDING"
+                            ? "Potential Payout"
+                            : "Result"}
+                    </small>
+
+                    <strong class="bet-result ${statusClass}">
+                        ${resultText}
                     </strong>
                 </div>
 
             </div>
 
         </div>
-        `;
-
-    }).join("");
-
+    `;
 }
 
 
-// --------------------------------------------------
+// ==================================================
 // STORAGE
-// --------------------------------------------------
+// ==================================================
 
 function saveData() {
 
@@ -855,6 +1189,7 @@ function saveData() {
         "balance",
         balance.toFixed(2)
     );
+
 
     localStorage.setItem(
         "bets",
@@ -864,23 +1199,62 @@ function saveData() {
 }
 
 
+// ==================================================
+// BALANCE
+// ==================================================
+
 function updateBalance() {
 
-    document.getElementById("balance")
+    document
+        .getElementById("balance")
         .textContent =
         "$" + balance.toFixed(2);
 
 }
+
+
+// ==================================================
+// DEPOSIT POPUP
+// ==================================================
+
 function showDepositMessage() {
-    document.getElementById("depositModal").classList.remove("hidden");
+
+    const modal =
+        document.getElementById(
+            "depositModal"
+        );
+
+    if (modal) {
+
+        modal.classList.remove(
+            "hidden"
+        );
+
+    }
+
 }
+
 
 function closeDepositMessage() {
-    document.getElementById("depositModal").classList.add("hidden");
+
+    const modal =
+        document.getElementById(
+            "depositModal"
+        );
+
+    if (modal) {
+
+        modal.classList.add(
+            "hidden"
+        );
+
+    }
+
 }
 
-// --------------------------------------------------
+
+// ==================================================
 // START
-// --------------------------------------------------
+// ==================================================
 
 initialize();
